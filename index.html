@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alec Minchington</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        $(document).ready(function() {
+
+            // Navbar handling
+            $('a.navbar-item').click(function() {
+                $('.tab-content').removeClass('active');
+                $('#' + $(this).attr('tab-idx')).addClass('active');
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="image-fade" id="topimg">
+        <section class="hero top-level fade-in-top" id="header">
+            <div class="hero-body">
+                <h1 id="header-intro" class="title has-text-light">
+                    Hi, I'm Alec Minchington
+                </h1>
+                <h2 id="header-intro" class="subtitle has-text-light">
+                    lol hi natalee
+                </h2>
+                <div style="height: 1rem;">
+                    <!-- spacing -->
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <!-- spacing -->
+                    </div>
+                    <div class="column is-narrow header-icon-wrapper">
+                        <a href="https://github.com/minchingtonak"> <i class="fab fa-github header-icon"></i>
+                        </a>
+                    </div>
+                    <div class="column is-narrow header-icon-wrapper">
+                        <a href="https://www.linkedin.com/in/alec-minchington-92985a179/"> <i class="fab fa-linkedin header-icon"></i>
+                        </a>
+                    </div>
+                    <div class="column is-narrow header-icon-wrapper">
+                        <a href="***REMOVED***"> <i class="fas fa-envelope header-icon"></i>
+                        </a>
+                    </div>
+                    <div class="column is-narrow header-icon-wrapper">
+                            <a href="***REMOVED***"> <i class="fas fa-phone header-icon"></i>
+                            </a>
+                    </div>
+                    <div class="column">
+                        <!-- spacing -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="top-level fade-in-top has-text-white" id="scrolldown">
+            <p>Scroll down for more</p>
+            <i class="fas fa-angle-down" id="chevron"></i>
+        </div>
+    </div>
+
+
+
+    <section class="section has-background-white">
+        <div id="navbar-container">
+            <nav class="navbar" id="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" tab-idx="t1">
+                            <i class="fas fa-user" id="nav-icon"></i>About Me
+                        </a>
+
+                        <a class="navbar-item" tab-idx="t2">
+                            <i class="fas fa-file-alt" id="nav-icon"></i>Resumé
+                        </a>
+
+                        <a class="navbar-item" tab-idx="t3">
+                            <i class="fas fa-code" id="nav-icon"></i>Projects
+                        </a>
+                    </div>
+            </nav>
+            </div>
+
+            <section class="section tab-content active" id="t1">
+                ayy
+            </section>
+            <section class="section tab-content" id="t2">
+                lmao
+            </section>
+            <section class="section tab-content" id="t3">
+                dab
+            </section>
+    </section>
+</body>
+
+</html>
