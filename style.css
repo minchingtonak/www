@@ -5,7 +5,7 @@
     --title-image-fade-dur: 0.7s;
     --header-text-fade-delay: calc(var(--title-image-fade-delay) + var(--title-image-fade-dur));
     --header-text-fade-dur: 0.8s;
-    --chevron-fade-delay: calc(var(--header-text-fade-delay) + var(--header-text-fade-dur));
+    --chevron-fade-delay: calc(var(--header-text-fade-delay) + var(--header-text-fade-dur) - 0.5s);
 }
 
 html,
@@ -139,10 +139,11 @@ body {
     align-self: center;
     text-align: center;
     font-weight: lighter;
+    font-size: 1rem;
 }
 
 #chevron {
-    font-size: 25px;
+    font-size: 2rem;
 }
 
 
