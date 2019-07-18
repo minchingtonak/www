@@ -1,7 +1,7 @@
 /* ====================== General styling ====================== */
 
 :root {
-    --title-image-fade-delay: 0.3s;
+    --title-image-fade-delay: 0.5s;
     --title-image-fade-dur: 0.7s;
     --header-text-fade-delay: calc(var(--title-image-fade-delay) + var(--title-image-fade-dur));
     --header-text-fade-dur: 0.8s;
@@ -13,6 +13,7 @@
 html,
 body {
     height: 100%;
+    background-color: hsl(0, 0%, 48%);
 }
 
 .fade-in-top {
@@ -122,8 +123,13 @@ body {
     animation-delay: var(--title-image-fade-delay);
 }
 
-
 /* ====================== Header styling ====================== */
+
+#profile-image-container {
+    align-self: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 9999px;
+}
 
 #header {
     animation-delay: var(--header-text-fade-delay);
