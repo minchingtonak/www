@@ -6,6 +6,8 @@
     --header-text-fade-delay: calc(var(--title-image-fade-delay) + var(--title-image-fade-dur));
     --header-text-fade-dur: 0.8s;
     --chevron-fade-delay: calc(var(--header-text-fade-delay) + var(--header-text-fade-dur) - 0.5s);
+
+    --title-image-blur: 3px;
 }
 
 html,
@@ -66,22 +68,42 @@ body {
     }
 }
 
-.top-level {
-    z-index: 9999;
+@keyframes blur-in {
+    from {
+        filter: blur(0px);
+    } 
+    to {
+        filter: blur(var(--title-image-blur));
+    }
 }
 
-#topimg {
-    background-image: url("northcampus_small.jpg");
+/* ====================== Title image styling ====================== */
+
+#title-container {
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     /* vertically center children */
     justify-content: center;
     /* horizontally center children */
+    overflow: hidden;
+}
+
+#title-bg-image {
+    background-image: url("northcampus_small.jpg");
+    position: absolute;
+    width: 102%;
+    height: 102%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image-fade {
+    animation: blur-in var(--title-image-fade-dur) forwards;
+    animation-delay: var(--title-image-fade-delay);
 }
 
 .image-fade:after {
