@@ -10,6 +10,10 @@
     --title-image-blur: 3px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
     height: 100%;
@@ -161,12 +165,22 @@ body {
     color: #edededdc;
 }
 
-#scrolldown {
+.scrolldown {
     animation-delay: var(--chevron-fade-delay);
     opacity: 0;
     align-self: center;
     text-align: center;
     font-weight: lighter;
+    position: relative;
+}
+
+div.scrolldown a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 #chevron {

@@ -7,18 +7,26 @@
     <title>Alec Minchington</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="easings.min.js"></script>
     <link rel="stylesheet" href="style.css">
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             // Navbar handling
-            $('a.navbar-item').click(function() {
+            $('a.navbar-item').click(function () {
                 $('.tab-content').removeClass('active');
                 $('#' + $(this).attr('tab-idx')).addClass('active');
             })
 
+            // Scroll smoothly on intra-page link click
+            $("a[href^=\\#]").click(function (e) {
+                e.preventDefault();
+                var dest = $(this).attr('href');
+                $('html,body').animate({ scrollTop: $(dest).offset().top }, 'slow', 'easeInOutSine');
+            })
         })
     </script>
 </head>
@@ -67,12 +75,12 @@
             </div>
         </section>
 
-        <div class="top-level fade-in-top has-text-light" id="scrolldown">
-            <p class="is-size-5" >Scroll down for more</p>
+        <div class="scrolldown top-level fade-in-top has-text-light">
+            <a href="#navbar-container"></a>
+            <p>Scroll down for more</p>
             <i class="fas fa-angle-down" id="chevron"></i>
         </div>
     </div>
-
 
     <section class="section has-background-white">
         <div id="navbar-container">
@@ -92,17 +100,67 @@
                         </a>
                     </div>
             </nav>
-            </div>
+        </div>
 
-            <section class="section tab-content active" id="t1">
-                ayy
-            </section>
-            <section class="section tab-content" id="t2">
-                lmao
-            </section>
-            <section class="section tab-content" id="t3">
-                dab
-            </section>
+        <section class="section tab-content active" id="t1">
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            ayy sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+            sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo
+        </section>
+        <section class="section tab-content" id="t2">
+            lmao
+        </section>
+        <section class="section tab-content" id="t3">
+            dab
+        </section>
     </section>
 </body>
 
