@@ -174,13 +174,12 @@ body {
     position: relative;
 }
 
-div.scrolldown a {
+.scrolldown a {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 10;
 }
 
 #chevron {
@@ -194,9 +193,59 @@ div.scrolldown a {
     text-align: center;
 }
 
-#navbar {
-    display: inline-block;
-    font-size: 1.2rem;
+.navbar-menu {
+    padding: 0 0;
+}
+
+.navbar-container {
+    background-color: #ededed;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navbar-button {
+    text-align: right;
+    display: none;
+    background-color: white;
+    width:100%;
+    box-shadow: 0 2px 4px rgba(10, 10, 10, 0.2);
+}
+
+.navbar-button p {
+    padding: 1em 1em;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Tablet size and smaller */
+@media only screen and (max-width: 923px) {
+    .navbar-container {
+        flex-direction: column;
+        justify-content: right;
+        display: none;
+    }
+
+    .navbar-item {
+        margin-left: auto;
+        margin-right: 0px;
+    }
+
+    .navbar-button {
+        display: inline-block;
+    }
+}
+
+a.navbar-item {
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+}
+
+a.navbar-item p {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 a.navbar-item:hover {
@@ -206,19 +255,5 @@ a.navbar-item:hover {
 #nav-icon {
     margin: 0.7rem;
 }
-
-
-/* ====================== Navbar tab styling ====================== */
-
-.tab-content {
-    display: none;
-    background: #ededed;
-}
-
-.tab-content.active {
-    display: inherit;
-    animation: fade-in 0.5s;
-}
-
 
 /* ====================== General content styling ====================== */
