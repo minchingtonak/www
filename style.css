@@ -8,6 +8,8 @@
     --chevron-fade-delay: calc(var(--header-text-fade-delay) + var(--header-text-fade-dur) - 0.5s);
 
     --title-image-blur: 3px;
+
+    --sky-blue: hsl(204, 86%, 53%);
 }
 
 html {
@@ -163,11 +165,14 @@ body {
     color: hsl(0, 0%, 96%);
     margin-left: 1vw;
     margin-right: 1vw;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
 }
 
-/* change hover color? */
 .header-icon:hover {
-    color: #edededdc;
+    color: var(--sky-blue);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 #scrolldown {
@@ -189,7 +194,6 @@ body {
 #chevron {
     font-size: 2rem;
 }
-
 
 /* ====================== Navbar styling ====================== */
 
@@ -247,7 +251,7 @@ body {
 }
 
 .navbar-item:hover {
-    box-shadow: inset 0px -2px 0px 0px hsl(204, 86%, 53%);
+    box-shadow: inset 0px -2px 0px 0px var(--sky-blue);
 }
 
 .nav-icon {
