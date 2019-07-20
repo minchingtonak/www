@@ -195,13 +195,6 @@ body {
 
 #navbar-container {
     text-align: center;
-}
-
-.navbar-menu {
-    padding: 0 0;
-}
-
-.navbar-container {
     background-color: #ededed;
     width: 100%;
     display: flex;
@@ -209,7 +202,7 @@ body {
     justify-content: center;
 }
 
-.navbar-button {
+#navbar-button {
     text-align: right;
     display: none;
     background-color: white;
@@ -217,7 +210,7 @@ body {
     box-shadow: 0 2px 4px rgba(10, 10, 10, 0.2);
 }
 
-.navbar-button p {
+#navbar-button p {
     padding: 1em 1em;
     font-weight: normal;
     cursor: pointer;
@@ -225,10 +218,14 @@ body {
 
 /* Tablet size and smaller */
 @media only screen and (max-width: 923px) {
-    .navbar-container {
+    #navbar-container {
         flex-direction: column;
         justify-content: right;
         display: none;
+    }
+
+    #navbar-button {
+        display: inline-block;
     }
 
     .navbar-item {
@@ -236,27 +233,24 @@ body {
         margin-right: 0px;
     }
 
-    .navbar-button {
-        display: inline-block;
-    }
 }
 
-a.navbar-item {
+.navbar-item {
     display: flex;
     flex-direction: row;
     vertical-align: middle;
 }
 
-a.navbar-item p {
+.navbar-item p {
     margin-top: auto;
     margin-bottom: auto;
 }
 
-a.navbar-item:hover {
+.navbar-item:hover {
     box-shadow: inset 0px -2px 0px 0px hsl(204, 86%, 53%);
 }
 
-#nav-icon {
+.nav-icon {
     margin: 0.7rem;
 }
 
