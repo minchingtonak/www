@@ -22,14 +22,14 @@
             });
 
             var show = false;
-            $(".navbar-button").click(function () {
+            $("#navbar-button").click(function () {
                 // Seems jank -> find a better way later?
                 if (show)
-                    $(".navbar-container").css('display', 'flex').animate({
+                    $("#navbar-container").css('display', 'flex').animate({
                         height: 'toggle'
                     });
                 else
-                    $(".navbar-container").css('display', 'flex').hide().animate({
+                    $("#navbar-container").css('display', 'flex').hide().animate({
                         height: 'toggle'
                     });
                 show = !show;
@@ -40,22 +40,22 @@
 
 <body>
     <div id="title-container">
-        <div class="image-fade" id="title-bg-image"></div>
-        <section class="hero top-level fade-in-top" id="header">
+        <div id="title-bg-image" class="image-fade"></div>
+        <section id="header" class="hero top-level fade-in-top">
             <!-- <figure class="image is-128x128" id="profile-image-container">
                 <img src="mcardphoto.png" class="is-rounded">
             </figure> -->
 
-            <div class="hero-body" id="header-body">
-                <h1 id="header-intro"
-                    class="title has-text-light has-text-weight-bold is-size-3-tablet is-size-4-mobile">
+            <div id="header-body" class="hero-body">
+                <h1
+                    class="title text-align-center has-text-light has-text-weight-bold is-size-3-tablet is-size-4-mobile">
                     Hi, I'm Alec Minchington
                 </h1>
-                <h2 id="header-intro"
-                    class="subtitle has-text-light has-text-weight-normal is-size-4-tablet is-size-5-mobile">
+                <h2
+                    class="subtitle text-align-center has-text-light has-text-weight-normal is-size-4-tablet is-size-5-mobile">
                     Passionate Programmer and Computer Hobbyist
                 </h2>
-                <div style="height: 1rem;">
+                <div class="v-spacer">
                     <!-- spacing -->
                 </div>
                 <div class="columns is-mobile is-centered">
@@ -82,14 +82,12 @@
             </div>
         </section>
 
-        <div class="scrolldown top-level fade-in-top has-text-light">
+        <div id="scrolldown" class="top-level fade-in-top has-text-light text-align-center">
             <a class="top-level" href="#navbar"></a>
             <p>Scroll down for more</p>
-            <i class="fas fa-angle-down" id="chevron"></i>
+            <i id="chevron" class="fas fa-angle-down"></i>
         </div>
     </div>
-
-
 
 
     <div id="navbar">
@@ -97,37 +95,37 @@
             <p>MENU</p>
         </div>
 
-        <div class="navbar-container">
+        <div id="navbar-container">
             <a class="navbar-item" href="#education">
                 <p>Education</p>
-                <i class="fas fa-user-graduate" id="nav-icon"></i>
+                <i class="fas fa-user-graduate nav-icon"></i>
             </a>
 
             <a class="navbar-item" href="#experience">
                 <p>Experience</p>
-                <i class="fas fa-briefcase" id="nav-icon"></i>
+                <i class="fas fa-briefcase nav-icon"></i>
             </a>
 
             <a class="navbar-item" href="#leadership">
                 <p>Leadership</p>
-                <i class="fas fa-star" id="nav-icon"></i>
+                <i class="fas fa-star nav-icon"></i>
             </a>
 
             <a class="navbar-item" href="#projects">
                 <p>Projects</p>
-                <i class="fas fa-laptop-code" id="nav-icon"></i>
+                <i class="fas fa-laptop-code nav-icon"></i>
             </a>
 
             <a class="navbar-item" href="#skills">
                 <p>Skills</p>
-                <i class="fas fa-code" id="nav-icon"></i>
+                <i class="fas fa-code nav-icon"></i>
             </a>
         </div>
     </div>
 
     <section class="section" style="background-color: white;">
 
-        <section class="container" id="education">
+        <section id="education" class="container">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim imperdiet nulla, a aliquam
             nulla.
             Morbi ut nulla ut urna dapibus feugiat. Ut lobortis felis ut tortor posuere aliquam. Aliquam a lobortis
@@ -154,7 +152,7 @@
             viverra quis molestie id, fringilla eu velit. Morbi ipsum nibh, dignissim at mattis in, congue nec erat.
             Quisque quis gravida tellus. Ut libero odio, egestas at augue vitae, egestas sollicitudin urna.
         </section>
-        <section class="container" id="experience">
+        <section id="experience" class="container">
             Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur
             efficitur
             nisl in facilisis cursus. Nullam vitae est finibus, consequat dui ut, faucibus libero. Nam urna nisi,
@@ -179,7 +177,7 @@
             condimentum
             sollicitudin, quam nulla cursus ipsum, nec interdum nisl augue quis felis.
         </section>
-        <section class="container" id="leadership">
+        <section id="leadership" class="container">
             Proin sit amet dolor sed nibh gravida faucibus vitae ac enim. Cras in sollicitudin turpis. Aliquam erat
             volutpat. Ut non nibh convallis, consectetur nisi condimentum, rhoncus augue. Pellentesque quis turpis
             ultrices, eleifend eros id, efficitur lectus. Sed eget ullamcorper nisi. Etiam enim ipsum, efficitur non
@@ -198,7 +196,7 @@
             malesuada neque id ipsum scelerisque, at efficitur tellus convallis. Mauris condimentum odio ligula, sit
             amet congue lorem lobortis sit amet. Fusce ac erat tortor. Nam dictum auctor tincidunt.
         </section>
-        <section class="container" id="projects">
+        <section id="projects" class="container">
             Proin scelerisque ac urna facilisis convallis. Praesent nisl lacus, tristique id ultrices ut, volutpat
             eget
             metus. Donec mi ex, malesuada nec pretium in, pulvinar vitae nibh. Donec nec pulvinar libero, a egestas
@@ -225,7 +223,7 @@
             dolor.
             Praesent mattis nec odio eu feugiat.
         </section>
-        <section class="container" id="skills">
+        <section id="skills" class="container">
             Nullam auctor pellentesque odio pellentesque molestie. In hac habitasse platea dictumst. Nullam et arcu
             et
             urna dapibus ultricies id sit amet tellus. Nullam sit amet ligula tellus. Duis pellentesque purus nec
