@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<head class="html-body">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alec Minchington</title>
@@ -22,7 +22,7 @@
             });
 
             var show = false;
-            $("#navbar-button").click(function () {
+            var toggle_mobile_navbar = function () {
                 // Seems jank -> find a better way later?
                 if (show)
                     $("#navbar-container").css('display', 'flex').animate({
@@ -33,12 +33,28 @@
                         height: 'toggle'
                     });
                 show = !show;
+            }
+            $("#navbar-button").click(toggle_mobile_navbar);
+            $('.navbar-item').click(toggle_mobile_navbar);
+
+            // position: sticky doesn't work after 1 screen's worth of height if html,body height is 100%
+            // to fix, start at 100% then immediately freeze the title page height and unset the height of html,body
+            $('#title-container').css('height', $("#navbar").offset().top);
+            $('.html-body').css('height', 'unset');
+
+            // Resize the title page if the window size changes
+            $(window).resize(function () {
+                $('.html-body').css('height', '100%');
+                $('#title-container').css('height', '100%');
+                $('#title-container').css('height', $("#navbar").offset().top);
+                $('.html-body').css('height', 'unset');
             });
         });
     </script>
 </head>
 
-<body>
+<body class="html-body">
+
     <div id="title-container">
         <div id="title-bg-image" class="image-fade"></div>
         <section id="header" class="hero top-level fade-in-top">
@@ -56,7 +72,7 @@
                     Passionate Programmer and Computer Hobbyist
                 </h2>
                 <div class="v-spacer">
-                    <!-- spacing -->
+
                 </div>
                 <div class="columns is-mobile is-centered">
                     <div class="column is-narrow header-icon-wrapper">
@@ -89,8 +105,7 @@
         </div>
     </div>
 
-
-    <div id="navbar">
+    <div id="navbar" class="sticky top-level">
         <div id="navbar-button" class="navbar-button">
             <p>MENU</p>
         </div>
