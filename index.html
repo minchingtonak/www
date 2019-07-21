@@ -105,12 +105,19 @@
         </div>
     </div>
 
-    <div id="navbar" class="sticky top-level">
-        <div id="navbar-button" class="navbar-button">
-            <p>MENU</p>
+    <nav id="navbar" class="sticky top-level has-bottom-thin-shadow">
+        <div id="navbar-button-wrapper">
+            <div id="navbar-space-fill" class="bg-color-white"></div>
+            <div id="navbar-button" class="bg-color-white">
+                <a role="button" id="burger" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
         </div>
 
-        <div id="navbar-container">
+        <div id="navbar-container" class="bg-color-grey">
             <a class="navbar-item" href="#education">
                 <p>Education</p>
                 <i class="fas fa-user-graduate nav-icon"></i>
