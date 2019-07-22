@@ -51,6 +51,7 @@ body {
 
 .has-bottom-thin-shadow {
     box-shadow: 0 2px 4px rgba(10, 10, 10, 0.2);
+    -webkit-box-shadow: 0 2px 4px rgba(10, 10, 10, 0.2);
 }
 
 .bg-color-grey {
@@ -260,6 +261,7 @@ body {
 
 .navbar-item:hover {
     box-shadow: inset 0 -2px 0 0 var(--sky-blue);
+    -webkit-box-shadow: inset 0 -2px 0 0 var(--sky-blue);
 }
 
 .nav-icon {
@@ -290,10 +292,12 @@ body {
 
     .navbar-item:hover {
         box-shadow: 0 0 0 0;
+        -webkit-box-shadow: 0 0 0 0;
     }
 
     a.navbar-item:hover {
         box-shadow: 0 0 0 0;
+        -webkit-box-shadow: 0 0 0 0;
         background-color: #c4c4c4;
         color: initial;
     }
