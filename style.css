@@ -230,7 +230,6 @@ body {
 
 #navbar-space-fill {
     flex-grow: 1;
-    height: fit-content;
 }
 
 #navbar-button {
