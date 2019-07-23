@@ -305,3 +305,8 @@ body {
 }
 
 /* ====================== General content styling ====================== */
+
+.header {
+    font-weight: bolder;
+    font-size: 1.5em;
+}
