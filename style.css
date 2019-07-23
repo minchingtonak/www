@@ -42,6 +42,7 @@ body {
 
 .sticky {
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
 }
 
@@ -120,6 +121,7 @@ body {
     height: 100%;
     position: relative;
     display: flex;
+    display: -webkit-flex;
     flex-direction: column;
     align-items: center;
     /* vertically center children */
@@ -220,12 +222,14 @@ body {
     text-align: center;
     width: 100%;
     display: flex;
+    display: -webkit-flex;
     flex-direction: row;
     justify-content: center;
 }
 
 #navbar-button-wrapper {
     display: flex;
+    display: -webkit-flex;
     flex-direction: row;
 } 
 
@@ -246,6 +250,7 @@ body {
 
 .navbar-item {
     display: flex;
+    display: -webkit-flex;
     flex-direction: row;
     vertical-align: middle;
     justify-items: right;
