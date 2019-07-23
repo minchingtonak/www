@@ -269,7 +269,7 @@ body {
 }
 
 /* Tablet size and smaller */
-@media only screen and (max-width: 923px) {
+@media only screen and (max-width: 1023px) {
     #navbar-container {
         flex-direction: column;
         justify-content: right;
