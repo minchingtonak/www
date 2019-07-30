@@ -19,7 +19,6 @@ html {
 html,
 body {
     height: 100%;
-    /* background-color: hsl(0, 0%, 48%); */
     background-color: white;
     overflow: visible;
 }
@@ -358,7 +357,6 @@ hr.dim {
 .entry .e-subtitle {
     font-style: italic;
     font-size: 1em;
-    /* grid-row: 2; */
     grid-column-start: 1;
     grid-column-end: 3;
     margin-left: 2em;
@@ -366,7 +364,6 @@ hr.dim {
 
 .entry .e-coursework {
     font-size: 1em;
-    /* grid-row: 3; */
     grid-column-start: 1;
     grid-column-end: 3;
     margin-left: 2em;
@@ -374,7 +371,6 @@ hr.dim {
 
 .entry .e-gpa {
     font-size: 1em;
-    /* grid-row: 4; */
     grid-column-start: 1;
     grid-column-end: 3;
     margin-left: 2em;
