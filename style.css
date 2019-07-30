@@ -342,40 +342,47 @@ hr.dim {
 .entry .e-title {
     font-weight: bold;
     font-size: 1.3em;
-    grid-column-start: 1;
-    grid-column-end: 3; 
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .entry .e-date {
     margin-right: 0.5em;
     font-weight: bold;
     font-size: 1.3em;
-    grid-column: 3;
+    grid-column: 2;
+    grid-row: 1;
     text-align: right;
 }
 
 .entry .e-subtitle {
     font-style: italic;
     font-size: 1em;
-    grid-row: 2;
+    /* grid-row: 2; */
+    grid-column-start: 1;
+    grid-column-end: 3;
     margin-left: 2em;
 }
 
 .entry .e-coursework {
     font-size: 1em;
-    grid-row: 3;
+    /* grid-row: 3; */
+    grid-column-start: 1;
+    grid-column-end: 3;
     margin-left: 2em;
 }
 
 .entry .e-gpa {
     font-size: 1em;
-    grid-row: 4;
+    /* grid-row: 4; */
+    grid-column-start: 1;
+    grid-column-end: 3;
     margin-left: 2em;
 }
 
 .entry .desc {
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 3;
 }
 
 .entry .desc li {
@@ -389,6 +396,38 @@ hr.dim {
 
 @media only screen and (max-width: 1023px) {
 
+    .entry .e-title {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .entry .e-date {
+        white-space: nowrap;
+        grid-row: 2;
+        color: #6e6e6e;
+        font-weight: normal;
+        font-size: 1.1em;
+    }
+
+    .entry .e-subtitle {
+        margin: 0 0 0.25em 0;
+    }
+
+    .entry .e-coursework {
+        margin: 0 0 0.25em 0;
+    }
+
+    .entry .e-gpa {
+        margin: 0 0 0.25em 0;
+    }
+
+    .entry .desc li {
+        margin: 0 0 0.6em 1.5em;
+    }
+
+    hr.dim {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1408px) {
