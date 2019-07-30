@@ -1,7 +1,7 @@
 /* ====================== General styling ====================== */
 
 :root {
-    --title-image-fade-delay: 0.5s;
+    --title-image-fade-delay: 1s;
     --title-image-fade-dur: 0.7s;
     --header-text-fade-delay: calc(var(--title-image-fade-delay) + var(--title-image-fade-dur));
     --header-text-fade-dur: 0.8s;
@@ -19,7 +19,8 @@ html {
 html,
 body {
     height: 100%;
-    background-color: hsl(0, 0%, 48%);
+    /* background-color: hsl(0, 0%, 48%); */
+    background-color: white;
     overflow: visible;
 }
 
@@ -311,7 +312,87 @@ body {
 
 /* ====================== General content styling ====================== */
 
-.header {
+#main-content {
+    background-color: white;
+}
+
+hr.dim {
+    color: black;
+    margin: 0.2em 0 1em 0;
+    background-color: #b8b8b8;
+    height: 1px;
+}
+
+.category {
     font-weight: bolder;
     font-size: 1.5em;
+}
+
+.entry {
+    font-size: 1.0rem;
+
+    display: grid;
+    grid-gap: 0px;
+
+    margin-bottom: 1em;
+
+    white-space: normal;
+}
+
+.entry .e-title {
+    font-weight: bold;
+    font-size: 1.3em;
+    grid-column-start: 1;
+    grid-column-end: 3; 
+}
+
+.entry .e-date {
+    margin-right: 0.5em;
+    font-weight: bold;
+    font-size: 1.3em;
+    grid-column: 3;
+    text-align: right;
+}
+
+.entry .e-subtitle {
+    font-style: italic;
+    font-size: 1em;
+    grid-row: 2;
+    margin-left: 2em;
+}
+
+.entry .e-coursework {
+    font-size: 1em;
+    grid-row: 3;
+    margin-left: 2em;
+}
+
+.entry .e-gpa {
+    font-size: 1em;
+    grid-row: 4;
+    margin-left: 2em;
+}
+
+.entry .desc {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.entry .desc li {
+    list-style: disc;
+    margin-left: 3em;
+}
+
+.entry .desc h2 {
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 1023px) {
+
+}
+
+@media screen and (min-width: 1408px) {
+    .container {
+        max-width: 960px;
+    }
 }

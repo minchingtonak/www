@@ -20,6 +20,7 @@ async function scrollAfterDelay(dest, delay) {
 }
 
 $(document).ready(function () {
+    $('.category').after('<hr class="dim">')
 
     // Scroll smoothly on intra-page link click
     $('a[href^=\\#]:not(.navbar-item)').click(function (e) {
