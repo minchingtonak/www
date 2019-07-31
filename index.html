@@ -33,8 +33,8 @@
 <body class="html-body">
 
     <div id="title-container">
-        <div id="title-bg-image"></div>
-        <div id="title-bg-image-blur" class="image-fade"></div>
+        <div id="title-bg-image" role="image"></div>
+        <div id="title-bg-image-blur" class="image-fade" role="image"></div>
         <section id="header" class="hero top-level fade-in-top">
             <!-- <figure class="image is-128x128" id="profile-image-container">
                 <img src="mcardphoto.png" class="is-rounded">
@@ -54,17 +54,17 @@
                 </div>
                 <div class="columns is-mobile is-centered">
                     <div class="column is-narrow header-icon-wrapper">
-                        <a href="https://github.com/minchingtonak"> <i
+                        <a target="_blank" href="https://github.com/minchingtonak" role="button" title="Go to my GitHub profile"> <i
                                 class="fab fa-github header-icon is-size-3-mobile"></i>
                         </a>
                     </div>
                     <div class="column is-narrow header-icon-wrapper">
-                        <a href="https://www.linkedin.com/in/alec-minchington-92985a179/"> <i
+                        <a target="_blank" href="https://www.linkedin.com/in/alec-minchington-92985a179/" role="button" title="Go to my LinkedIn profile"> <i
                                 class="fab fa-linkedin header-icon is-size-3-mobile"></i>
                         </a>
                     </div>
                     <div class="column is-narrow header-icon-wrapper">
-                        <a href="mailto:"> <i class="fas fa-envelope header-icon is-size-3-mobile"></i>
+                        <a target="_blank" href="mailto:" role="button" title="Send an email to me"> <i class="fas fa-envelope header-icon is-size-3-mobile"></i>
                         </a>
                     </div>
                 </div>
@@ -72,13 +72,13 @@
         </section>
 
         <div id="scrolldown" class="top-level fade-in-top has-text-light text-align-center">
-            <a class="top-level" href="#navbar-top"></a>
+            <a class="top-level" href="#navbar-top" role="button" title="Go to the start of the resume page"></a>
             <p>Scroll down for more</p>
             <i id="chevron" class="fas fa-angle-down"></i>
         </div>
     </div>
 
-    <div id="navbar-top"></div>
+    <div id="navbar-top" aria-hidden="true"></div>
 
     <nav id="navbar" class="sticky top-level has-bottom-thin-shadow">
         <div id="navbar-button-wrapper">
@@ -93,27 +93,27 @@
         </div>
 
         <div id="navbar-container" class="bg-color-grey">
-            <a class="navbar-item" href="#education">
+            <a class="navbar-item" href="#education" role="button" title="Go to the education section">
                 <p>Education</p>
                 <i class="fas fa-user-graduate nav-icon"></i>
             </a>
 
-            <a class="navbar-item" href="#experience">
+            <a class="navbar-item" href="#experience" role="button" title="Go to the experience section">
                 <p>Experience</p>
                 <i class="fas fa-briefcase nav-icon"></i>
             </a>
 
-            <a class="navbar-item" href="#leadership">
-                <p>Leadership</p>
+            <a class="navbar-item" href="#leadership" role="button" title="Go to the leadership and volunteering section">
+                <p>Leadership & Volunteering</p>
                 <i class="fas fa-star nav-icon"></i>
             </a>
 
-            <a class="navbar-item" href="#projects">
+            <a class="navbar-item" href="#projects" role="button" title="Go to the projects section">
                 <p>Projects</p>
                 <i class="fas fa-laptop-code nav-icon"></i>
             </a>
 
-            <a class="navbar-item" href="#skills">
+            <a class="navbar-item" href="#skills" role="button" title="Go to the skills section">
                 <p>Skills</p>
                 <i class="fas fa-code nav-icon"></i>
             </a>
@@ -164,13 +164,13 @@
 
 
         <section class="container">
-            <h1 id="leadership" class="category">LEADERSHIP</h1>
+            <h1 id="leadership" class="category">LEADERSHIP & VOLUNTEERING</h1>
             <section class="entry">
                 <p class="e-title">Athens High School, FRC Team 226, Troy, MI</p>
                 <p class="e-date">Fall 2016—Spring 2018</p>
                 <p class="e-subtitle">Programming Lead</p>
                 <ul class="desc">
-                    <li>Spearheaded project to implement a Java library for advanced autonomous control of our robot,
+                    <li>Spearheaded project to implement a <a target="_blank" href="https://github.com/hammerhead226/SharkMacro" title="Go to the GitHub page for the library">Java library for advanced autonomous control of our robot</a>,
                         leading to a 95% overall autonomous accuracy throughout the season (63% previous season average)
                     </li>
                     <li>Coordinated, developed, and implemented a Java programming curriculum that greatly increased
@@ -210,7 +210,7 @@
             <section class="entry">
                 <p class="e-title">University of Michigan, MHacks 11 Hackathon, Ann Arbor, MI</p>
                 <p class="e-date">October 2018</p>
-                <p class="e-subtitle">DashDance</p>
+                <a target="_blank" class="e-subtitle" href="https://devpost.com/software/dashdance" title="Go to the Devpost page for the project">DashDance</a>
                 <ul class="desc">
                     <li>Collaborated with fellow hackers and IntrepidCS staff to design an app to make an automotive
                         instrument panel ‘dance’ to music</li>
@@ -244,7 +244,7 @@
 <footer>
     <section class="container section">
         <p>© Alec Minchington</p>
-        <a class="top-link" href="#navbar-top">Back to top <i class="fas fa-arrow-up"></i></a>
+        <a class="top-link" href="#navbar-top" role="button" title="Go to top of page">Back to top <i class="fas fa-arrow-up"></i></a>
     </section>
 </footer>
 
