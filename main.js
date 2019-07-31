@@ -21,6 +21,7 @@ async function scrollAfterDelay(dest, delay) {
 
 $(document).ready(function () {
     $('.category').after('<hr class="dim">');
+    is_mobile() ? $('.navbar-item').attr('aria-hidden', 'true') : $('.navbar-item').attr('aria-hidden', 'false');
 
     $('a.navbar-item').mouseup(function () {
         $(this).blur();
@@ -47,12 +48,16 @@ $(document).ready(function () {
                 height: 'toggle'
             }, 'fast');
             $('#burger').removeClass('is-active bg-color-grey');
+            $('#burger').attr('aria-expanded', 'false');
+            $('.navbar-item').attr('aria-hidden', 'true');
         }
         else {
             $("#navbar-container").css('display', 'flex').hide().animate({
                 height: 'toggle'
             }, 'fast');
             $('#burger').addClass('is-active bg-color-grey');
+            $('#burger').attr('aria-expanded', 'true');
+            $('.navbar-item').attr('aria-hidden', 'false');
         }
         toggle_mobile_navbar.show = !toggle_mobile_navbar.show;
     }
