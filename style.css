@@ -122,9 +122,7 @@ body {
     display: -webkit-flex;
     flex-direction: column;
     align-items: center;
-    /* vertically center children */
     justify-content: center;
-    /* horizontally center children */
     overflow: hidden;
 }
 
@@ -177,6 +175,7 @@ body {
     opacity: 0;
     margin-bottom: auto;
     margin-top: auto;
+    border-radius: 20px;
 }
 
 #header-body {
@@ -208,6 +207,8 @@ body {
     align-self: center;
     font-weight: lighter;
     position: relative;
+    padding: 0.5em 1em 0 1em;
+    border-radius: 20px 20px 0 0;
 }
 
 #scrolldown a {
