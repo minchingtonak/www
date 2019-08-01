@@ -12,7 +12,10 @@ async function scrollAfterDelay(dest, delay) {
     var x = await (function (dest, N) {
         return new Promise(resolve => {
             setTimeout(() => {
-                $('html,body').scrollTop($(dest).offset().top - (is_mobile() ? $('#navbar-button-wrapper').height() : $('#navbar-container').height()));
+                var d = $(dest).parent();
+                // center section if it fits within the screen, else scroll to the top of it
+                var t = $(window).height() - $('#navbar').height() <= d.outerHeight(true) ? d.offset().top - $('#navbar').height() : d.offset().top + (d.outerHeight(true) * 0.5) - $(window).height() * 0.5;
+                $('html,body').scrollTop(t);
                 resolve(dest);
             }, N);
         });
