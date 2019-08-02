@@ -232,6 +232,7 @@ body {
     display: -webkit-flex;
     flex-direction: row;
     justify-content: center;
+    background-color: white;
 }
 
 #navbar-button-wrapper {
@@ -272,7 +273,7 @@ body {
 }
 
 a.navbar-item:hover {
-    background-color: #a0a0a0;
+    background-color: #d6d6d6;
     color: initial;
 }
 
