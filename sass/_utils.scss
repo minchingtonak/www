@@ -1,0 +1,103 @@
+// Page configuration parameters
+$title_image_fade_dur: 0.7s;
+$title_image_fade_delay: 1s;
+$header_text_fade_dur: 0.8s;
+$header_text_fade_dur: 0.8s;
+$header_text_fade_delay: $title_image_fade_dur+$title_image_fade_delay;
+$chevron_fade_delay: $header_text_fade_dur+$header_text_fade_delay - 0.5s;
+
+$sky_blue: hsl(204, 86%, 53%);
+$light_grey: hsl(0, 0%, 84%);
+$grey: hsl(0, 0%, 72%);
+$near_black: hsl(0, 0%, 12%);
+
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+
+    -webkit-animation: $animations;
+    animation: $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
+@mixin transition($dur) {
+    -webkit-transition: $dur;
+    transition: $dur;
+}
+
+@mixin box-shadow($property) {
+    // -webkit-box-shadow: 0 2px 4px rgba(10, 10, 10, 0.2);
+    // box-shadow: 0 2px 4px rgba(10, 10, 10, 0.2);
+    -webkit-box-shadow: $property;
+    box-shadow: $property;
+} 
+
+%display-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@include keyframes(fade-in-top) {
+    0% {
+        @include transform(translateY(-50px));
+        opacity: 0;
+    }
+
+    100% {
+        @include transform(translateY(0px));
+        opacity: 1;
+    }
+}
+
+@include keyframes(fade-in) {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+%fade-in-top {
+    @include animation('fade-in-top '+ $header_text_fade_dur + ' cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards')
+}
+
+%sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+%bottom-shadow {
+    @include box-shadow(0 2px 4px rgba(10, 10, 10, 0.2));
+}
+
+.top-level {
+    z-index: 9999;
+}

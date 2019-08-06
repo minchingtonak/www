@@ -1,0 +1,92 @@
+#navbar {
+    @extend %sticky;
+    @extend %bottom-shadow;
+    background-color: white;
+}
+
+#navbar-container {
+    text-align: center;
+    width: 100%;
+    @extend %display-flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: white;
+}
+
+#navbar-button-wrapper {
+    @extend %display-flex;
+    flex-direction: row;
+}
+
+#navbar-space-fill {
+    flex-grow: 1;
+}
+
+#navbar-button {
+    text-align: right;
+    display: none;
+    width: fit-content;
+    cursor: pointer;
+
+    a p {
+        padding: 1em 1em;
+    }
+}
+
+.navbar-item {
+    @extend %display-flex;
+    flex-direction: row;
+    vertical-align: middle;
+    justify-items: right;
+
+    p {
+        margin: auto 0 auto auto;
+    }
+
+    svg {
+        order: -1;
+    }
+}
+
+a.navbar-item:hover {
+    background-color: $light_grey;
+    color: initial;
+}
+
+.nav-icon {
+    margin: 0.7rem;
+}
+
+/* Tablet size and smaller */
+@media only screen and (max-width: 1023px) {
+    #navbar-container {
+        flex-direction: column;
+        justify-content: right;
+        display: none;
+    }
+
+    #navbar-button {
+        display: inline-block;
+    }
+
+    .navbar-item {
+        margin-left: 0px;
+        margin-right: 0px;
+        flex: 1;
+
+        svg {
+            order: 1;
+        }
+    }
+
+    .navbar-item:hover {
+        @include box-shadow(0 0 0 0);
+    }
+
+    a.navbar-item:hover {
+        @include box-shadow(0 0 0 0);
+        background-color: #c4c4c4;
+        color: initial;
+    }
+
+}

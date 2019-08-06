@@ -1,0 +1,124 @@
+#main-content {
+    background-color: white;
+}
+
+hr.dim {
+    color: black;
+    margin: 0.2em 0 1em 0;
+    background-color: $grey;
+    height: 1px;
+}
+
+.category {
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+
+.entry {
+    font-size: 1.0rem;
+    display: grid;
+    grid-gap: 0px;
+    margin-bottom: 1em;
+    white-space: normal;
+
+    a {
+        text-decoration: underline;
+    }
+
+    .e-title {
+        font-weight: bold;
+        font-size: 1.3em;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .e-date {
+        margin-right: 0.5em;
+        font-weight: bold;
+        font-size: 1.3em;
+        grid-column: 2;
+        grid-row: 1;
+        text-align: right;
+    }
+
+    .e-subtitle {
+        font-style: italic;
+        font-size: 1em;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-left: 2em;
+    }
+
+    .e-coursework {
+        font-size: 1em;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-left: 2em;
+    }
+
+    .e-gpa {
+        font-size: 1em;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-left: 2em;
+    }
+
+    .desc {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        li {
+            list-style: disc;
+            margin-left: 3em;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+
+    .entry {
+        .e-title {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        .e-date {
+            white-space: nowrap;
+            grid-row: 2;
+            color: #6e6e6e;
+            font-weight: normal;
+            font-size: 1.1em;
+        }
+
+        .e-subtitle {
+            margin: 0 0 0.25em 0;
+        }
+
+        .e-coursework {
+            margin: 0 0 0.25em 0;
+        }
+
+        .e-gpa {
+            margin: 0 0 0.25em 0;
+        }
+
+        .desc li {
+            margin: 0 0 0.6em 1.5em;
+        }
+
+        hr.dim {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: 1408px) {
+    .container {
+        max-width: 960px;
+    }
+}

@@ -1,0 +1,21 @@
+footer {
+    background-color: $near_black;
+    display: block;
+    width: 100%;
+    height: 100px;
+
+    p {
+        color: white;
+        grid-column: 1;
+    }
+
+    .section {
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        display: grid;
+    }
+
+    .top-link {
+        grid-column: 2;
+        text-align: right;
+    }
+}
