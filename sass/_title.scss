@@ -1,0 +1,103 @@
+@mixin title-image-shared($image) {
+    background-image: url($image);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+%image-fade-shared {
+    @include animation('fade-in '+ $title_image_fade_dur + ' '+ $title-image-fade-delay + ' forwards');
+    opacity: 0;
+}
+
+#title-container {
+    height: 100%;
+    position: relative;
+    @extend %display-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#title-bg-image {
+    @include title-image-shared('northcampus_small.jpg');
+}
+
+#title-bg-image-blur {
+    @include title-image-shared('northcampus_small_blur.jpg');
+    @extend %image-fade-shared;
+}
+
+// see if this can be done with the title-image-shared mixin
+#title-bg-image-blur::after {
+    content: '\A';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    @extend %image-fade-shared;
+}
+
+#header {
+    @extend %fade-in-top;
+    animation-delay: $header_text_fade_delay;
+    opacity: 0;
+    margin-bottom: auto;
+    margin-top: auto;
+    border-radius: 20px;
+}
+
+#header-body {
+    padding: 2em 1.5em;
+
+    h1,h2 {
+        text-align: center;
+    }
+}
+
+.header-icon-wrapper {
+    width: auto;
+}
+
+.header-icon {
+    font-size: 2.5rem;
+    color: hsl(0, 0%, 96%);
+    margin-left: 1vw;
+    margin-right: 1vw;
+    @include transition(0.5s);
+}
+
+.header-icon:hover {
+    color: $sky-blue;
+    @include transform(scale(1.2));
+}
+
+#scrolldown {
+    @extend %fade-in-top;
+    animation-delay: $chevron-fade-delay;
+    opacity: 0;
+    text-align: center;
+    align-self: center;
+    font-weight: lighter;
+    position: relative;
+    padding: 0.5em 1em 0 1em;
+    border-radius: 20px 20px 0 0;
+}
+
+#scrolldown a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#chevron {
+    font-size: 2rem;
+}
