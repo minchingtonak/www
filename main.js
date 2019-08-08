@@ -26,6 +26,8 @@ async function scrollAfterDelay(dest, delay) {
 
 $(document).ready(function () {
     $('.category').after('<hr class="dim">');
+
+    // Configure accessibility tag state based on device type
     is_mobile() ? $('.navbar-item').attr('aria-hidden', 'true') : $('.navbar-item').attr('aria-hidden', 'false');
 
     // Dark mode transitions on all relevant elements
@@ -42,6 +44,7 @@ $(document).ready(function () {
         $('html,body').toggleClass('dark-html');
     });
 
+    // Don't keep focus on navbar items after click
     $('a.navbar-item').mouseup(function () {
         $(this).blur();
     });
