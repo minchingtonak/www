@@ -1,5 +1,11 @@
 #main-content {
     background-color: white;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+#main-content.dark-theme {
+    background-color: $dark_mode_color;
 }
 
 hr.dim {
@@ -18,7 +24,7 @@ hr.dim {
     font-size: 1.0rem;
     display: grid;
     grid-gap: 0px;
-    margin-bottom: 1em;
+    padding-bottom: 1em;
     white-space: normal;
 
     a {
@@ -81,6 +87,10 @@ hr.dim {
 
 @media only screen and (max-width: 1023px) {
 
+    .container {
+        margin: 0 0.75em;
+    }
+
     .entry {
         .e-title {
             grid-column-start: 1;
@@ -90,9 +100,13 @@ hr.dim {
         .e-date {
             white-space: nowrap;
             grid-row: 2;
-            color: #6e6e6e;
+            color: hsl(0, 0%, 43%);
             font-weight: normal;
             font-size: 1.1em;
+        }
+
+        .e-date.dark-theme {
+            color: hsl(0, 0%, 70%);
         }
 
         .e-subtitle {
@@ -119,6 +133,7 @@ hr.dim {
 
 @media screen and (min-width: 1408px) {
     .container {
+        // max-width: 960px - 48px; for old width with 1.5rem lr padding
         max-width: 960px;
     }
 }

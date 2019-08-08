@@ -6,10 +6,14 @@ $header_text_fade_dur: 0.8s;
 $header_text_fade_delay: $title_image_fade_dur+$title_image_fade_delay;
 $chevron_fade_delay: $header_text_fade_dur+$header_text_fade_delay - 0.5s;
 
+$dark_mode_transition_dur: 0s;
+
 $sky_blue: hsl(204, 86%, 53%);
+$off_white: hsl(0, 0%, 90%);
 $light_grey: hsl(0, 0%, 84%);
 $grey: hsl(0, 0%, 72%);
 $near_black: hsl(0, 0%, 12%);
+$dark_mode_color: hsl(0, 0%, 18%);
 
 @mixin animation($animate...) {
     $max: length($animate);
@@ -49,11 +53,9 @@ $near_black: hsl(0, 0%, 12%);
 }
 
 @mixin box-shadow($property) {
-    // -webkit-box-shadow: 0 2px 4px rgba(10, 10, 10, 0.2);
-    // box-shadow: 0 2px 4px rgba(10, 10, 10, 0.2);
     -webkit-box-shadow: $property;
     box-shadow: $property;
-} 
+}
 
 %display-flex {
     display: -webkit-box;
@@ -94,10 +96,38 @@ $near_black: hsl(0, 0%, 12%);
     top: 0;
 }
 
-%bottom-shadow {
-    @include box-shadow(0 2px 4px rgba(10, 10, 10, 0.2));
-}
-
 .top-level {
     z-index: 9999;
+}
+
+.transition {
+    transition: color $dark_mode_transition_dur, background-color $dark_mode_transition_dur;
+}
+
+%light-bottom-shadow {
+    @include box-shadow(0 2px 4px hsla(0, 0%, 4%, 0.2));
+}
+
+%dark-bottom-shadow {
+    @include box-shadow(0 2px 4px hsla(0, 0%, 4%, 0.55));
+}
+
+.dark-html {
+    background-color: $dark_mode_color;
+}
+
+.dark-theme {
+    background-color: $dark_mode_color;
+
+    h1,
+    h2,
+    p,
+    li,
+    hr {
+        color: white;
+    }
+
+    svg, span {
+        color: $off_white;
+    }
 }
