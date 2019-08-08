@@ -69,21 +69,19 @@ $(document).ready(function () {
             $("#navbar-container").css('display', 'flex').animate({
                 height: 'toggle'
             }, 'fast')
-            $('#burger').removeClass('is-active bg-color-grey')
-            $('#burger').attr('aria-expanded', 'false')
+            $(this).removeClass('is-active bg-color-grey').attr('aria-expanded', 'false')
             $('.navbar-item').attr('aria-hidden', 'true')
         }
         else {
             $("#navbar-container").css('display', 'flex').hide().animate({
                 height: 'toggle'
             }, 'fast')
-            $('#burger').addClass('is-active bg-color-grey')
-            $('#burger').attr('aria-expanded', 'true')
+            $(this).addClass('is-active bg-color-grey').attr('aria-expanded', 'true')
             $('.navbar-item').attr('aria-hidden', 'false')
         }
         toggle_mobile_navbar.show = !toggle_mobile_navbar.show
     }
-    $("#navbar-button").click(toggle_mobile_navbar)
+    $("#burger").click(toggle_mobile_navbar)
 
     // position: sticky doesn't work after 1 screen's worth of height if html,body height is 100%
     // to fix, start at 100% then immediately freeze the title page height and unset the height of html,body
