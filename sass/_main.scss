@@ -20,6 +20,7 @@ hr.dim {
     font-size: 1.5em;
 }
 
+
 .entry {
     font-size: 1.0rem;
     display: grid;
@@ -29,6 +30,13 @@ hr.dim {
 
     a {
         text-decoration: underline;
+    }
+
+    a:link,
+    a:visited,
+    a:focus,
+    a:active {
+        color: $link_blue;
     }
 
     .e-title {

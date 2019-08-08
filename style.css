@@ -366,6 +366,12 @@ hr.dim {
 .entry a {
   text-decoration: underline;
 }
+.entry a:link,
+.entry a:visited,
+.entry a:focus,
+.entry a:active {
+  color: #3273dc;
+}
 .entry .e-title {
   font-weight: bold;
   font-size: 1.3em;
