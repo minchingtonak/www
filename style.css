@@ -96,16 +96,21 @@
   color: #e6e6e6;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 html,
 body {
   height: 100%;
   background-color: white;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
 #title-bg-image-blur::after, #title-bg-image-blur {
   -webkit-animation: fade-in 0.7s 1s forwards;
   animation: fade-in 0.7s 1s forwards;
