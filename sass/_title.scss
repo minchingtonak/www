@@ -101,3 +101,10 @@
 #chevron {
     font-size: 2rem;
 }
+
+/* Tablet size and smaller */
+@media only screen and (max-width: 1023px) {
+    #scrolldown p {
+        font-weight: bolder;
+    }
+}
