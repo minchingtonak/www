@@ -11,6 +11,9 @@
         content="Alec Minchington, Alec, Minchington, University of Michigan, UMich, Ann Arbor, Michigan">
     <meta name="author" content="Alec Minchington">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+
 
     <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
@@ -19,7 +22,6 @@
     <link rel="shortcut icon" href="/icon/favicon.ico">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/icon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
 
     <title>Alec Minchington</title>
 
@@ -86,13 +88,20 @@
     <nav id="navbar" class="top-level">
         <div id="navbar-button-wrapper">
             <div id="navbar-space-fill"></div>
-            <div id="navbar-button">
+            <div id="navbar-button" class="top-level">
                 <a role="button" id="burger" class="navbar-burger" aria-label="menu" aria-expanded="false">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
+        </div>
+
+        <div id="dark-toggle-container">
+            <div id="dark-toggle-wrapper" class="top-level">
+                <a id="dark-toggle" role="button" title="Toggle dark mode"><i class="fas fa-moon nav-icon"></i></a>
+            </div>
+            <div id="navbar-space-fill"></div>
         </div>
 
         <div id="navbar-container">
@@ -124,7 +133,7 @@
         </div>
     </nav>
 
-    <main id="main-content" class="container section">
+    <main id="main-content" class="container">
         <section class="container">
             <h1 id="education" class="category">EDUCATION</h1>
             <section class="entry">

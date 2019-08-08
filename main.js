@@ -1,4 +1,6 @@
 const MOBILE_WIDTH = 1006; // experimental threshold based on testing
+const DARK_MODE_COLOR = '#2d2d2d';
+const LIGHT_MODE_COLOR = '#ffffff';
 
 var get_device_state = function () {
     return $(window).width() <= MOBILE_WIDTH ? 'mobile' : 'desktop';
@@ -25,6 +27,20 @@ async function scrollAfterDelay(dest, delay) {
 $(document).ready(function () {
     $('.category').after('<hr class="dim">');
     is_mobile() ? $('.navbar-item').attr('aria-hidden', 'true') : $('.navbar-item').attr('aria-hidden', 'false');
+
+    // Dark mode transitions on all relevant elements
+    $('html,body,#navbar,#navbar-container,#burger,#main-content').addClass('transition');
+    $('#navbar, #main-content').children().addClass('transition');
+
+    // Toggle dark mode
+    $('#dark-toggle-container').css('height', $('#navbar').height());
+    $('#dark-toggle').click( function() {
+        var theme = $('meta[name=theme-color],meta[name=apple-mobile-web-app-status-bar-style]');
+        $('meta[name=theme-color]').attr('content') != LIGHT_MODE_COLOR ? theme.attr('content', LIGHT_MODE_COLOR) : theme.attr('content', DARK_MODE_COLOR);
+        $('#navbar,#burger,#main-content').children().toggleClass('dark-theme');
+        $('#main-content,#navbar,.e-date').toggleClass('dark-theme');
+        $('html,body').toggleClass('dark-html');
+    });
 
     $('a.navbar-item').mouseup(function () {
         $(this).blur();
