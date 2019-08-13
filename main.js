@@ -25,7 +25,9 @@ async function scrollAfterDelay(dest, delay) {
 }
 
 $(document).ready(function () {
-    $('.category').after('<hr class="dim">')
+    var html_body = $('.html-body')
+
+    $('.category', '#main-content').after('<hr class="dim">')
 
     // Configure accessibility tag state based on device type
     is_mobile() ? $('.navbar-item').attr('aria-hidden', 'true') : $('.navbar-item').attr('aria-hidden', 'false')
@@ -39,26 +41,22 @@ $(document).ready(function () {
         var theme = $('meta[name=theme-color],meta[name=apple-mobile-web-app-status-bar-style]')
         $('meta[name=theme-color]').attr('content') != LIGHT_MODE_COLOR ? theme.attr('content', LIGHT_MODE_COLOR) : theme.attr('content', DARK_MODE_COLOR)
         $('#navbar,#burger,#main-content').children().toggleClass('dark-theme')
-        $('#main-content,#navbar,.e-date').toggleClass('dark-theme')
+        $('#main-content,#navbar').toggleClass('dark-theme')
+        $('.e-date', '.entry').toggleClass('dark-theme')
         $('html,body').toggleClass('dark-html')
     })
 
     // Don't keep focus on navbar items after click
-    $('a.navbar-item').mouseup(function () {
+    $('a.navbar-item', '#navbar').mouseup(function () {
         $(this).blur()
     })
 
-    // Scroll smoothly on intra-page link click
-    $('a[href^=\\#]:not(.navbar-item)').click(function (e) {
-        e.preventDefault()
-        $('html,body').scrollTop($($(this).attr('href')).offset().top)
-    })
-
     // subtract navbar hieght from scroll targets before scrolling
-    $('a.navbar-item').click(function (e) {
-        e.preventDefault()
+    $('a.navbar-item', '#navbar').click(function (e) {
+        // e.preventDefault()
         is_mobile() ? toggle_mobile_navbar() : void (0)
         scrollAfterDelay($(this).attr('href'), 250) // 'fast' animation duration + 50ms
+        return false
     })
 
     var toggle_mobile_navbar = function () {
@@ -68,15 +66,15 @@ $(document).ready(function () {
             $("#navbar-container").css('display', 'flex').animate({
                 height: 'toggle'
             }, 'fast')
-            $(this).removeClass('is-active bg-color-grey').attr('aria-expanded', 'false')
-            $('.navbar-item').attr('aria-hidden', 'true')
+            $('#navbar-burger').removeClass('is-active bg-color-grey').attr('aria-expanded', 'false')
+            $('.navbar-item', '#navbar').attr('aria-hidden', 'true')
         }
         else {
             $("#navbar-container").css('display', 'flex').hide().animate({
                 height: 'toggle'
             }, 'fast')
-            $(this).addClass('is-active bg-color-grey').attr('aria-expanded', 'true')
-            $('.navbar-item').attr('aria-hidden', 'false')
+            $('#navbar-burger').addClass('is-active bg-color-grey').attr('aria-expanded', 'true')
+            $('.navbar-item', '#navbar').attr('aria-hidden', 'false')
         }
         toggle_mobile_navbar.show = !toggle_mobile_navbar.show
     }
@@ -85,7 +83,7 @@ $(document).ready(function () {
     // position: sticky doesn't work after 1 screen's worth of height if html,body height is 100%
     // to fix, start at 100% then immediately freeze the title page height and unset the height of html,body
     $('#title-container').css('height', $("#navbar").offset().top)
-    $('.html-body').css('height', 'unset')
+    html_body.css('height', 'unset')
 
     // Resize the title page if the window size changes
     var state = get_device_state()
@@ -97,10 +95,9 @@ $(document).ready(function () {
 
         // Fix height of title page on window vertical resize
         if ($(window).height() != prev_height) {
-            $('.html-body').css('height', '100%')
-            $('#title-container').css('height', '100%')
-            $('#title-container').css('height', $("#navbar").offset().top)
-            $('.html-body').css('height', 'unset')
+            html_body.css('height', '100%')
+            $('#title-container').css('height', '100%').css('height', $("#navbar").offset().top)
+            html_body.css('height', 'unset')
             prev_height = $(window).height()
         }
 
