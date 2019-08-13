@@ -35,8 +35,7 @@ $(document).ready(function () {
     $('#navbar, #main-content').children().addClass('transition')
 
     // Toggle dark mode
-    $('#dark-toggle-container').css('height', $('#navbar').height())
-    $('#dark-toggle').click( function() {
+    $('#dark-toggle').click(function () {
         var theme = $('meta[name=theme-color],meta[name=apple-mobile-web-app-status-bar-style]')
         $('meta[name=theme-color]').attr('content') != LIGHT_MODE_COLOR ? theme.attr('content', LIGHT_MODE_COLOR) : theme.attr('content', DARK_MODE_COLOR)
         $('#navbar,#burger,#main-content').children().toggleClass('dark-theme')

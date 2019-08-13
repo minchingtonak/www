@@ -45,7 +45,7 @@
     @extend %display-flex;
     flex-direction: row;
     justify-self: center;
-    align-self: center;
+    align-self: flex-start;
     color: $near_black;
     padding: 1em 1.5em;
     height: 100%;
