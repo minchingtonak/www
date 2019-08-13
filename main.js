@@ -16,7 +16,8 @@ async function scrollAfterDelay(dest, delay) {
             setTimeout(() => {
                 var d = $(dest).parent()
                 // center section if it fits within the screen, else scroll to the top of it
-                var t = $(window).height() - $('#navbar').height() <= d.outerHeight(true) ? d.offset().top - $('#navbar').height() : d.offset().top + (d.outerHeight(true) * 0.5) - $(window).height() * 0.5
+                // +50 px of leeway to prevent ugly scroll position when heights are very close
+                var t = $(window).height() - $('#navbar').height() <= d.outerHeight(true) + 50 ? d.offset().top - $('#navbar').height() : d.offset().top + (d.outerHeight(true) * 0.5) - $(window).height() * 0.5
                 $('html,body').scrollTop(t)
                 resolve(dest)
             }, N)
