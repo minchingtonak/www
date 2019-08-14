@@ -1,9 +1,10 @@
 // Page configuration parameters
 $title_image_fade_dur: 0.7s;
 $title_image_fade_delay: 1s;
-$header_text_fade_dur: 0.8s;
+$profile_image_fade_dur: 0.8s;
 $header_text_fade_dur: 0.8s;
 $header_text_fade_delay: $title_image_fade_dur+$title_image_fade_delay;
+$profile_image_fade_delay: $header_text_fade_delay - 0.3s;
 $chevron_fade_delay: $header_text_fade_dur+$header_text_fade_delay - 0.5s;
 
 $dark_mode_transition_dur: 0s;
@@ -48,6 +49,16 @@ $dark_mode_color: hsl(0, 0%, 18%);
     transform: $property;
 }
 
+@mixin transform-style($property) {
+    -webkit-transform-style: $property;
+    transform-style: $property;
+}
+
+@mixin animation-timing-function($property) {
+    -webkit-animation-timing-function: $property;
+    animation-timing-function: $property;
+}
+
 @mixin transition($dur) {
     -webkit-transition: $dur;
     transition: $dur;
@@ -87,8 +98,47 @@ $dark_mode_color: hsl(0, 0%, 18%);
     }
 }
 
+@include keyframes(fade-in-from-below) {
+    0% {
+        @include transform(translateZ(-80px));
+        opacity: 0;
+    }
+
+    100% {
+        @include transform(translateZ(0));
+        opacity: 1;
+    }
+}
+
+/*@include keyframes(pop-in) { 
+    0% {
+        @include transform(scale(0));
+        @include animation-timing-function(ease-in);
+        opacity: 0;
+    }
+    60% {
+        @include transform(scale(1));
+        @include animation-timing-function(ease-out);
+        opacity: 1;
+    }
+    77% {
+        @include transform(scale(0.7));
+        @include animation-timing-function(ease-in);
+        opacity: 1;
+    }
+    100% {
+        @include transform(scale(1));
+        @include animation-timing-function(ease-out);
+        opacity: 1;
+    }
+} */
+
 %fade-in-top {
-    @include animation('fade-in-top '+ $header_text_fade_dur + ' cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards')
+    @include animation('fade-in-top ' + $header_text_fade_dur + ' cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards');
+}
+
+%fade-in-from-below {
+    @include animation('fade-in-from-below ' + $profile_image_fade_dur + ' cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards');
 }
 
 %sticky {
@@ -128,7 +178,8 @@ $dark_mode_color: hsl(0, 0%, 18%);
         color: white;
     }
 
-    svg, span {
+    svg,
+    span {
         color: $off_white;
     }
 }

@@ -44,19 +44,53 @@
     @extend %image-fade-shared;
 }
 
-#header {
-    @extend %fade-in-top;
-    animation-delay: $header_text_fade_delay;
+#perspective-wrapper {
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+    @include transform-style(preserve-3d);
+    align-self: center;
+}
+
+#profile-image-container {
+    display: inline-block;
+    @extend %fade-in-from-below;
+    @include transform-style(preserve-3d);
+    animation-delay: $profile_image_fade_delay;
     opacity: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 9999px;
+    @include box-shadow(1px 1px 4px hsla(0, 0%, 4%, 0.4));
+
+    div {
+
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 9999px;
+        margin: 0.75em;
+        @include box-shadow(3px 3px 4px hsla(0, 0%, 4%, 0.5));
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
+
+#header {
+    
+    opacity: 1;
     margin-bottom: auto;
     margin-top: auto;
     border-radius: 20px;
 }
 
 #header-body {
+    @extend %fade-in-top;
+    animation-delay: $header_text_fade_delay;
+    opacity: 0;
     padding: 2em 1.5em;
 
-    h1,h2 {
+    h1,
+    h2 {
         text-align: center;
     }
 }
@@ -104,6 +138,12 @@
 
 /* Tablet size and smaller */
 @media only screen and (max-width: 1023px) {
+
+    #profile-image-container div img {
+        width: 175px;
+        height: 175px;
+    }
+
     #scrolldown p {
         font-weight: bolder;
     }
