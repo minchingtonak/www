@@ -14,7 +14,7 @@ var make_title = function (name) {
         'class': 'container'
     })
     section.append($('<h1>', {
-        id: 'name',
+        id: name.toLowerCase().replace(/[^0-9a-z]/gi, ''),
         'class': 'category',
         text: name.toUpperCase()
     }))
@@ -73,14 +73,23 @@ var make_skills = function (skills, skills_name) {
     $('#main-content').append(section)
 }
 
+var make_navbar_item = function (name, icon) {
+    var a = $('<a>', {'class': 'navbar-item', href: '#'+name.toLowerCase().replace(/[^0-9a-z]/gi, '') })
+    a.append($('<p>', {html: name}))
+    a.append($('<i>', {'class': icon+' nav-icon'}))
+    $('#navbar-container').append(a)
+}
+
 var generate = function () {
     // https://gist.githubusercontent.com/minchingtonak/c83ff547dfa762624edf900691ad3bc5/raw
     $.getJSON('http://127.0.0.1:5500/resume.json', function (resume) {
-        keys = Object.keys(resume)
-        for (var i = 0; i < keys.length - 1; i++) {
-            make_section(resume[keys[i]], keys[i])
-        }
-        make_skills(resume[keys[keys.length - 1]], keys[keys.length - 1])
+        var keys = Object.keys(resume)
+        for (var i = 0; i < keys.length; i++)
+            make_navbar_item(keys[i], resume[keys[i]]['icon'])
+        for (var i = 0; i < keys.length - 1; i++)
+            make_section(resume[keys[i]]['entries'], keys[i])
+        make_skills(resume[keys[keys.length - 1]]['entries'], keys[keys.length - 1])
+        after_generate()
     })
 }
 
@@ -100,8 +109,7 @@ async function scrollAfterDelay(dest, delay) {
     }(dest, delay))
 }
 
-$(document).ready(function () {
-    generate()
+var after_generate = function() {
     var html_body = $('.html-body')
 
     $('.category', '#main-content').after('<hr class="dim">')
@@ -183,4 +191,6 @@ $(document).ready(function () {
         else if (state == 'mobile' && prev_state == 'desktop' && $('#navbar-container').css('display') != 'none')
             $('#navbar-container').css('display', 'none')
     })
-})
+}
+
+$(generate)
