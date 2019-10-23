@@ -9,6 +9,81 @@ var is_mobile = function () {
     return $(window).width() <= MOBILE_WIDTH
 }
 
+var make_title = function (name) {
+    var section = $('<section>', {
+        'class': 'container'
+    })
+    section.append($('<h1>', {
+        id: 'name',
+        'class': 'category',
+        text: name.toUpperCase()
+    }))
+    section.append($('<hr>', {
+        'class': 'dim'
+    }))
+    return section
+}
+
+var make_section = function (category, category_name) {
+    var section = make_title(category_name)
+    for (entry in category) {
+        var entry_section = $('<section>', {
+            'class': 'entry'
+        })
+        for (property in category[entry]) {
+            if (property == "desc") {
+                var ul = $('<ul>', {
+                    'class': 'desc'
+                })
+                for (bullet in category[entry][property]) {
+                    ul.append($('<li>', {
+                        text: category[entry][property][bullet]
+                    }))
+                }
+                entry_section.append(ul)
+            } else {
+                var p = $('<p>', {
+                    'class': 'e-' + property,
+                    text: category[entry][property]
+                })
+                entry_section.append(p)
+            }
+        }
+        section.append(entry_section)
+    }
+    $('#main-content').append(section)
+}
+
+var make_skills = function (skills, skills_name) {
+    var section = make_title(skills_name)
+    var ul = $('<ul>', {
+        'class': 'desc'
+    })
+    var entry_section = $('<section>', {
+        'class': 'entry'
+    })
+    for (type in skills) {
+        var li = $('<li>', {
+            html: '<h2>' + type + ':</h2>' + skills[type]
+        })
+        ul.append(li)
+    }
+    entry_section.append(ul)
+    section.append(entry_section)
+    $('#main-content').append(section)
+}
+
+var generate = function () {
+    // https://gist.githubusercontent.com/minchingtonak/c83ff547dfa762624edf900691ad3bc5/raw
+    $.getJSON('http://127.0.0.1:5500/resume.json', function (resume) {
+        keys = Object.keys(resume)
+        for (var i = 0; i < keys.length - 1; i++) {
+            make_section(resume[keys[i]], keys[i])
+        }
+        make_skills(resume[keys[keys.length - 1]], keys[keys.length - 1])
+    })
+}
+
 // Seems jank -> find a better way later?
 async function scrollAfterDelay(dest, delay) {
     var x = await (function (dest, N) {
@@ -26,6 +101,7 @@ async function scrollAfterDelay(dest, delay) {
 }
 
 $(document).ready(function () {
+    generate()
     var html_body = $('.html-body')
 
     $('.category', '#main-content').after('<hr class="dim">')
@@ -55,7 +131,7 @@ $(document).ready(function () {
     // subtract navbar hieght from scroll targets before scrolling
     $('a.navbar-item', '#navbar').click(function (e) {
         // e.preventDefault()
-        is_mobile() ? toggle_mobile_navbar() : void (0)
+        is_mobile() ? toggle_mobile_navbar() : void(0)
         scrollAfterDelay($(this).attr('href'), 250) // 'fast' animation duration + 50ms
         return false
     })
@@ -69,8 +145,7 @@ $(document).ready(function () {
             }, 'fast')
             $('#navbar-burger').removeClass('is-active bg-color-grey').attr('aria-expanded', 'false')
             $('.navbar-item', '#navbar').attr('aria-hidden', 'true')
-        }
-        else {
+        } else {
             $("#navbar-container").css('display', 'flex').hide().animate({
                 height: 'toggle'
             }, 'fast')
