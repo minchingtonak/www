@@ -112,8 +112,6 @@ async function scrollAfterDelay(dest, delay) {
 var after_generate = function() {
     var html_body = $('.html-body')
 
-    $('.category', '#main-content').after('<hr class="dim">')
-
     // Configure accessibility tag state based on device type
     is_mobile() ? $('.navbar-item').attr('aria-hidden', 'true') : $('.navbar-item').attr('aria-hidden', 'false')
 
