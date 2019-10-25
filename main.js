@@ -85,7 +85,9 @@ var make_skills = function (skills, skills_name) {
     })
     for (type in skills) {
         var li = $('<li>', {
-            html: '<h2>' + type + ':</h2>' + skills[type]
+            html: $('<h2>', {
+                text: type + ':'
+            })[0].outerHTML + skills[type]
         })
         ul.append(li)
     }
@@ -95,9 +97,19 @@ var make_skills = function (skills, skills_name) {
 }
 
 var make_navbar_item = function (name, icon) {
-    var a = $('<a>', {'class': 'navbar-item', href: '#'+name.toLowerCase().replace(/[^0-9a-z]/gi, '') })
-    a.append($('<p>', {html: name}))
-    a.append($('<i>', {'class': icon+' nav-icon'}))
+    var p_name = name.toLowerCase()
+    var a = $('<a>', {
+        'class': 'navbar-item',
+        href: '#' + p_name.replace(/[^0-9a-z]/gi, ''),
+        role: 'button',
+        title: 'Go to the ' + p_name + ' section.'
+    })
+    a.append($('<p>', {
+        html: name
+    }))
+    a.append($('<i>', {
+        'class': icon + ' nav-icon'
+    }))
     $('#navbar-container').append(a)
 }
 
@@ -130,7 +142,7 @@ async function scrollAfterDelay(dest, delay) {
     }(dest, delay))
 }
 
-var after_generate = function() {
+var after_generate = function () {
     var html_body = $('.html-body')
 
     // Configure accessibility tag state based on device type
