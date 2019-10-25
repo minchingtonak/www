@@ -9,6 +9,27 @@ var is_mobile = function () {
     return $(window).width() <= MOBILE_WIDTH
 }
 
+var handle_link = function (text) {
+    var regex = /\[[^\]]+?\][\s]*\([^\s\)]+?[\s]+?'[\s\S]+?'\)/g
+    var matches = []
+    while (match = regex.exec(text))
+        matches.push(match)
+
+    if (matches.length) {
+        for (i = 0; i < matches.length; i++) {
+            var mid = /\]\s*\(/g.exec(matches[i][0])
+            var end = /\s*['"]/g.exec(matches[i][0].substr(mid.index + mid.length))
+
+            text = text.replace(matches[i][0], $('<a>', {
+                text: matches[i][0].substring(1, mid.index),
+                href: matches[i][0].substring(mid.index + mid[0].length, end.index + mid.index + 1),
+                title: matches[i][0].substring(end.index + mid.index + end[0].length + 1, matches[i][0].length - 2)
+            })[0].outerHTML)
+        }
+    }
+    return text
+}
+
 var make_title = function (name) {
     var section = $('<section>', {
         'class': 'container'
@@ -37,14 +58,14 @@ var make_section = function (category, category_name) {
                 })
                 for (bullet in category[entry][property]) {
                     ul.append($('<li>', {
-                        text: category[entry][property][bullet]
+                        html: handle_link(category[entry][property][bullet])
                     }))
                 }
                 entry_section.append(ul)
             } else {
                 var p = $('<p>', {
                     'class': 'e-' + property,
-                    text: category[entry][property]
+                    html: handle_link(category[entry][property])
                 })
                 entry_section.append(p)
             }
