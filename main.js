@@ -23,7 +23,8 @@ var handle_link = function (text) {
             text = text.replace(matches[i][0], $('<a>', {
                 text: matches[i][0].substring(1, mid.index),
                 href: matches[i][0].substring(mid.index + mid[0].length, end.index + mid.index + 1),
-                title: matches[i][0].substring(end.index + mid.index + end[0].length + 1, matches[i][0].length - 2)
+                title: matches[i][0].substring(end.index + mid.index + end[0].length + 1, matches[i][0].length - 2),
+                target: '_blank'
             })[0].outerHTML)
         }
     }
