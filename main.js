@@ -115,8 +115,7 @@ var make_navbar_item = function (name, icon) {
 }
 
 var generate = function () {
-    // https://gist.githubusercontent.com/minchingtonak/c83ff547dfa762624edf900691ad3bc5/raw
-    $.getJSON('http://127.0.0.1:5500/resume.json', function (resume) {
+    $.getJSON('https://gist.githubusercontent.com/minchingtonak/c83ff547dfa762624edf900691ad3bc5/raw', function (resume) {
         var keys = Object.keys(resume)
         for (var i = 0; i < keys.length; i++)
             make_navbar_item(keys[i], resume[keys[i]]['icon'])
