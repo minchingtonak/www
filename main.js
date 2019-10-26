@@ -142,6 +142,15 @@ async function scrollAfterDelay(dest, delay) {
     }(dest, delay))
 }
 
+var toggle_dark_mode = function () {
+    var theme = $('meta[name=theme-color],meta[name=apple-mobile-web-app-status-bar-style]')
+    $('meta[name=theme-color]').attr('content') != LIGHT_MODE_COLOR ? theme.attr('content', LIGHT_MODE_COLOR) : theme.attr('content', DARK_MODE_COLOR)
+    $('#navbar,#burger,#main-content').children().toggleClass('dark-theme')
+    $('#main-content,#navbar').toggleClass('dark-theme')
+    $('.e-date', '.entry').toggleClass('dark-theme')
+    $('html,body').toggleClass('dark-html')
+}
+
 var after_generate = function () {
     var html_body = $('.html-body')
 
@@ -153,14 +162,7 @@ var after_generate = function () {
     $('#navbar, #main-content').children().addClass('transition')
 
     // Toggle dark mode
-    $('#dark-toggle').click(function () {
-        var theme = $('meta[name=theme-color],meta[name=apple-mobile-web-app-status-bar-style]')
-        $('meta[name=theme-color]').attr('content') != LIGHT_MODE_COLOR ? theme.attr('content', LIGHT_MODE_COLOR) : theme.attr('content', DARK_MODE_COLOR)
-        $('#navbar,#burger,#main-content').children().toggleClass('dark-theme')
-        $('#main-content,#navbar').toggleClass('dark-theme')
-        $('.e-date', '.entry').toggleClass('dark-theme')
-        $('html,body').toggleClass('dark-html')
-    })
+    $('#dark-toggle').click(toggle_dark_mode)
 
     // Don't keep focus on navbar items after click
     $('a.navbar-item', '#navbar').mouseup(function () {
@@ -194,6 +196,10 @@ var after_generate = function () {
         toggle_mobile_navbar.show = !toggle_mobile_navbar.show
     }
     $("#burger").click(toggle_mobile_navbar)
+
+    var hour = new Date().getHours();
+    if (hour <= 9 || hour >= 18)
+        toggle_dark_mode()
 
     // position: sticky doesn't work after 1 screen's worth of height if html,body height is 100%
     // to fix, start at 100% then immediately freeze the title page height and unset the height of html,body
