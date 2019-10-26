@@ -9,6 +9,123 @@ var is_mobile = function () {
     return $(window).width() <= MOBILE_WIDTH
 }
 
+var handle_link = function (text) {
+    var regex = /\[[^\]]+?\][\s]*\([^\s\)]+?[\s]+?'[\s\S]+?'\)/g
+    var matches = []
+    while (match = regex.exec(text))
+        matches.push(match)
+
+    if (matches.length) {
+        for (i = 0; i < matches.length; i++) {
+            var mid = /\]\s*\(/g.exec(matches[i][0])
+            var end = /\s*['"]/g.exec(matches[i][0].substr(mid.index + mid.length))
+
+            text = text.replace(matches[i][0], $('<a>', {
+                text: matches[i][0].substring(1, mid.index),
+                href: matches[i][0].substring(mid.index + mid[0].length, end.index + mid.index + 1),
+                title: matches[i][0].substring(end.index + mid.index + end[0].length + 1, matches[i][0].length - 2),
+                target: '_blank'
+            })[0].outerHTML)
+        }
+    }
+    return text
+}
+
+var make_title = function (name) {
+    var section = $('<section>', {
+        'class': 'container'
+    })
+    section.append($('<h1>', {
+        id: name.toLowerCase().replace(/[^0-9a-z]/gi, ''),
+        'class': 'category',
+        text: name.toUpperCase()
+    }))
+    section.append($('<hr>', {
+        'class': 'dim'
+    }))
+    return section
+}
+
+var make_section = function (category, category_name) {
+    var section = make_title(category_name)
+    for (entry in category) {
+        var entry_section = $('<section>', {
+            'class': 'entry'
+        })
+        for (property in category[entry]) {
+            if (property == "desc") {
+                var ul = $('<ul>', {
+                    'class': 'desc'
+                })
+                for (bullet in category[entry][property]) {
+                    ul.append($('<li>', {
+                        html: handle_link(category[entry][property][bullet])
+                    }))
+                }
+                entry_section.append(ul)
+            } else {
+                var p = $('<p>', {
+                    'class': 'e-' + property,
+                    html: handle_link(category[entry][property])
+                })
+                entry_section.append(p)
+            }
+        }
+        section.append(entry_section)
+    }
+    $('#main-content').append(section)
+}
+
+var make_skills = function (skills, skills_name) {
+    var section = make_title(skills_name)
+    var ul = $('<ul>', {
+        'class': 'desc'
+    })
+    var entry_section = $('<section>', {
+        'class': 'entry'
+    })
+    for (type in skills) {
+        var li = $('<li>', {
+            html: $('<h2>', {
+                text: type + ':'
+            })[0].outerHTML + skills[type]
+        })
+        ul.append(li)
+    }
+    entry_section.append(ul)
+    section.append(entry_section)
+    $('#main-content').append(section)
+}
+
+var make_navbar_item = function (name, icon) {
+    var p_name = name.toLowerCase()
+    var a = $('<a>', {
+        'class': 'navbar-item',
+        href: '#' + p_name.replace(/[^0-9a-z]/gi, ''),
+        role: 'button',
+        title: 'Go to the ' + p_name + ' section.'
+    })
+    a.append($('<p>', {
+        html: name
+    }))
+    a.append($('<i>', {
+        'class': icon + ' nav-icon'
+    }))
+    $('#navbar-container').append(a)
+}
+
+var generate = function () {
+    $.getJSON('https://gist.githubusercontent.com/minchingtonak/c83ff547dfa762624edf900691ad3bc5/raw', function (resume) {
+        var keys = Object.keys(resume)
+        for (var i = 0; i < keys.length; i++)
+            make_navbar_item(keys[i], resume[keys[i]]['icon'])
+        for (var i = 0; i < keys.length - 1; i++)
+            make_section(resume[keys[i]]['entries'], keys[i])
+        make_skills(resume[keys[keys.length - 1]]['entries'], keys[keys.length - 1])
+        after_generate()
+    })
+}
+
 // Seems jank -> find a better way later?
 async function scrollAfterDelay(dest, delay) {
     var x = await (function (dest, N) {
@@ -25,10 +142,8 @@ async function scrollAfterDelay(dest, delay) {
     }(dest, delay))
 }
 
-$(document).ready(function () {
+var after_generate = function () {
     var html_body = $('.html-body')
-
-    $('.category', '#main-content').after('<hr class="dim">')
 
     // Configure accessibility tag state based on device type
     is_mobile() ? $('.navbar-item').attr('aria-hidden', 'true') : $('.navbar-item').attr('aria-hidden', 'false')
@@ -55,7 +170,7 @@ $(document).ready(function () {
     // subtract navbar hieght from scroll targets before scrolling
     $('a.navbar-item', '#navbar').click(function (e) {
         // e.preventDefault()
-        is_mobile() ? toggle_mobile_navbar() : void (0)
+        is_mobile() ? toggle_mobile_navbar() : void(0)
         scrollAfterDelay($(this).attr('href'), 250) // 'fast' animation duration + 50ms
         return false
     })
@@ -69,8 +184,7 @@ $(document).ready(function () {
             }, 'fast')
             $('#navbar-burger').removeClass('is-active bg-color-grey').attr('aria-expanded', 'false')
             $('.navbar-item', '#navbar').attr('aria-hidden', 'true')
-        }
-        else {
+        } else {
             $("#navbar-container").css('display', 'flex').hide().animate({
                 height: 'toggle'
             }, 'fast')
@@ -108,4 +222,6 @@ $(document).ready(function () {
         else if (state == 'mobile' && prev_state == 'desktop' && $('#navbar-container').css('display') != 'none')
             $('#navbar-container').css('display', 'none')
     })
-})
+}
+
+$(generate)
