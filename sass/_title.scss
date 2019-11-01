@@ -87,7 +87,7 @@
     @extend %fade-in-top;
     animation-delay: $header_text_fade_delay;
     opacity: 0;
-    padding: 2em 1.5em;
+    padding: 2em 1.5em 1em 1.5em;
 
     h1,
     h2 {
