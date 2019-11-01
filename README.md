@@ -1,3 +1,5 @@
 # Get Started
-* Install SASS: `npm install sass -g`
-* Compile stylesheet: `sass sass/style.scss style.css`
+* Install dependencies: `npm install sass csso uglify-js -g`
+* Compile stylesheet: `make sass`
+* Minify JS/CSS: `make minify`
+* Compile and minify together: `make all`
