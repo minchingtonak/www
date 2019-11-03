@@ -48,7 +48,8 @@ function make_title(name) {
 }
 
 function make_section(category, category_name) {
-    var section = make_title(category_name);
+    var section_frag = $(document.createDocumentFragment());
+    section_frag.append(make_title(category_name));
     for (entry in category) {
         var entry_section = $('<section>', {
             'class': 'entry'
@@ -72,13 +73,14 @@ function make_section(category, category_name) {
                 entry_section.append(p);
             }
         }
-        section.append(entry_section);
+        section_frag[0].firstChild.append(entry_section[0]);
     }
-    $('#main-content').append(section);
+    return section_frag;
 }
 
 function make_skills(skills, skills_name) {
-    var section = make_title(skills_name);
+    var section_frag = $(document.createDocumentFragment());
+    section_frag.append(make_title(skills_name));
     var ul = $('<ul>', {
         'class': 'desc'
     });
@@ -86,16 +88,15 @@ function make_skills(skills, skills_name) {
         'class': 'entry'
     });
     for (type in skills) {
-        var li = $('<li>', {
+        ul.append($('<li>', {
             html: $('<h2>', {
                 text: type + ':'
             })[0].outerHTML + skills[type]
-        });
-        ul.append(li);
+        }));
     }
     entry_section.append(ul);
-    section.append(entry_section);
-    $('#main-content').append(section);
+    section_frag[0].firstChild.append(entry_section[0]);
+    return section_frag;
 }
 
 function make_navbar_item(name, icon) {
@@ -112,19 +113,32 @@ function make_navbar_item(name, icon) {
     a.append($('<i>', {
         'class': icon + ' nav-icon'
     }));
-    $('#navbar-container').append(a);
+    return a;
+}
+
+function make_all_navbar_items(resume) {
+    var keys = Object.keys(resume),
+        frag = $(document.createDocumentFragment());
+    for (var i = 0; i < keys.length; i++)
+        frag.append(make_navbar_item(keys[i], resume[keys[i]]['icon']));
+    $('#navbar-container').append(frag);
+}
+
+function make_all_sections(resume) {
+    var keys = Object.keys(resume),
+        frag = $(document.createDocumentFragment());
+    for (var i = 0; i < keys.length - 1; i++)
+        frag.append(make_section(resume[keys[i]]['entries'], keys[i]));
+    frag.append(make_skills(resume[keys[keys.length - 1]]['entries'], keys[keys.length - 1]));
+    $('#main-content').append(frag);
 }
 
 function generate() {
     $.getJSON('https://gist.githubusercontent.com/minchingtonak/c83ff547dfa762624edf900691ad3bc5/raw', function (resume) {
-        var keys = Object.keys(resume);
-        for (var i = 0; i < keys.length; i++)
-            make_navbar_item(keys[i], resume[keys[i]]['icon']);
-        for (var i = 0; i < keys.length - 1; i++)
-            make_section(resume[keys[i]]['entries'], keys[i]);
-        make_skills(resume[keys[keys.length - 1]]['entries'], keys[keys.length - 1]);
+        make_all_navbar_items(resume);
+        make_all_sections(resume);
         after_generate();
-    })
+    });
 }
 
 // Seems jank -> find a better way later?
