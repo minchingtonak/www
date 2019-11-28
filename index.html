@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html class="html-body" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
+
+    <html class="html-body" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
     <meta charset="UTF-8">
     <meta name="google" content="notranslate">
     <meta http-equiv="Content-Language" content="en">
@@ -30,12 +33,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.min.css">
-    <script type="text/javascript" src="main.js"></script>
 </head>
 
 <body class="html-body">
 
-    <div id="title-container">
+    <div id="title-container" class="shadow">
         <div id="title-bg-image" role="image"></div>
         <div id="title-bg-image-blur" role="image"></div>
         <section id="header" class="hero top-level">
@@ -78,47 +80,51 @@
         </section>
 
         <div id="scrolldown" class="top-level fade-in-top has-text-light">
-            <a class="top-level" href="#navbar-top" role="button" title="Go to the start of the resume page"></a>
+            <a class="top-level" href="#intro" role="button" title="Go to the start of the resume page"></a>
             <p>Scroll down for more</p>
             <i id="chevron" class="fas fa-angle-down"></i>
         </div>
     </div>
 
-    <div id="navbar-top" aria-hidden="true"></div>
-
-    <nav id="navbar" class="top-level">
-        <div id="navbar-button-wrapper">
-            <div id="navbar-space-fill"></div>
-            <div id="navbar-button" class="top-level">
-                <a role="button" id="burger" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
+    <div id="intro">
+        <h2 class="title">About Me</h2>
+        <div class="columns is-mobile">
+            <div class="column is-two-fifths">
+                <img id="intro-image" src="kyoto-v3.png">
             </div>
-        </div>
+            <div class="column">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Augue ut lectus arcu bibendum at. Nulla at volutpat diam ut venenatis tellus
+                    in. Proin libero nunc consequat interdum varius. Dignissim suspendisse in est ante in nibh. Mauris
+                    nunc congue nisi vitae suscipit. Pellentesque nec nam aliquam sem et tortor consequat id. Libero
+                    justo laoreet sit amet cursus sit amet dictum. Pretium vulputate sapien nec sagittis aliquam
+                    malesuada bibendum arcu vitae. Accumsan in nisl nisi scelerisque eu ultrices vitae. Sagittis vitae
+                    et leo duis ut diam quam. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu
+                    vitae. Et pharetra pharetra massa massa ultricies. Pellentesque elit eget gravida cum sociis natoque
+                    penatibus. Neque egestas congue quisque egestas diam in arcu. Nisl pretium fusce id velit. Eros
+                    donec ac odio tempor orci dapibus ultrices in iaculis. Blandit volutpat maecenas volutpat blandit
+                    aliquam etiam erat velit. Ultrices eros in cursus turpis massa tincidunt dui. Morbi tempus iaculis
+                    urna id volutpat.
 
-        <div id="dark-toggle-container">
-            <div id="dark-toggle-wrapper" class="top-level">
-                <a id="dark-toggle" role="button" title="Toggle dark mode"><i class="fas fa-moon nav-icon"></i></a>
+                    Et netus et malesuada fames ac turpis egestas maecenas pharetra. Volutpat commodo sed egestas
+                    egestas fringilla phasellus. Duis at consectetur lorem donec massa sapien faucibus et molestie. Eu
+                    non diam phasellus vestibulum. Enim nulla aliquet porttitor lacus luctus accumsan tortor. Malesuada
+                    bibendum arcu vitae elementum curabitur. Lorem ipsum dolor sit amet consectetur adipiscing elit
+                    duis. Ac ut consequat semper viverra nam libero justo laoreet. Tincidunt praesent semper feugiat
+                    nibh sed pulvinar proin gravida hendrerit. Nunc sed id semper risus in hendrerit gravida rutrum. Sit
+                    amet nisl suscipit adipiscing. Pulvinar mattis nunc sed blandit. Varius duis at consectetur lorem
+                    donec massa. Euismod lacinia at quis risus sed. Habitasse platea dictumst vestibulum rhoncus est
+                    pellentesque elit.</p>
             </div>
-            <div id="navbar-space-fill"></div>
+            <!-- <div class="column">Auto</div> -->
         </div>
-
-        <div id="navbar-container">
-            <!-- Filled by generate() -->
-        </div>
-    </nav>
-
-    <main id="main-content" class="container">
-        <!-- Filled by generate() -->
-    </main>
+    </div>
 </body>
 
 <footer>
     <section class="container section">
         <p>© 2019 Alec Minchington</p>
-        <a class="top-link" href="#navbar-top" role="button" title="Go to top of page">Back to top <i
+        <a class="top-link" href="#intro" role="button" title="Go to top of page">Back to top <i
                 class="fas fa-arrow-up"></i></a>
     </section>
 </footer>
