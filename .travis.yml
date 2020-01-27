@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - 12
+branches:
+  only:
+  - master
+before_install:
+  - npm i -g mishoo/UglifyJS2#harmony html-minifier csso-cli
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  fqdn: alecminch.dev
+  committer_from_gh: true
+  verbose: true
+  local_dir: minified/html
+  on:
+    branch: master
