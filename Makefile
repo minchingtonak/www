@@ -1,11 +1,14 @@
 .PHONY: all
 all: style minify
 
-minify: style.css main.js
-	csso style.css > style.min.css
-	mv style.css.map style.min.css.map
-	sed -i 's/style\.css/style\.min\.css/g' style.min.css.map
-	uglifyjs main.js > main.min.js
+minify: main.css splash.css intro.js resume.js
+	csso main.css > main.min.css
+	csso splash.css > splash.min.css
+	# mv style.css.map style.min.css.map
+	# sed -i 's/style\.css/style\.min\.css/g' style.min.css.map
+	uglifyjs resume.js > resume.min.js
+	uglifyjs intro.js > intro.min.js
 
-style: sass/style.scss sass/_utils.scss sass/_general.scss sass/_title.scss sass/_navbar.scss sass/_main.scss sass/_footer.scss
-	sass sass/style.scss style.css
+style: sass/*
+	sass sass/style.scss main.css
+	sass sass/splash.scss splash.css
