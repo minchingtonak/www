@@ -1,0 +1,106 @@
+#main-content {
+    margin: 50px auto;
+
+    #about-me {
+        margin-left: 5vw;
+    }
+
+    #intro-image {
+        display: block;
+        width: 70%;
+        border-radius: 3vw;
+        margin: 2em auto;
+    }
+
+    .intro-blurb {
+        margin-top: 2em;
+        margin-bottom: 1em;
+    }
+
+    .column {
+        padding: 0;
+    }
+
+    #bcol {
+        justify-content: center;
+        display: flex;
+    }
+
+    #divider {
+        width: 80%;
+        margin: 3em auto;
+    }
+
+    a.button {
+        font-size: 1.5em;
+        width: 13em;
+        height: 7em;
+    }
+
+    a.button,
+    a.button svg {
+        @include transition(0.3s);
+    }
+
+    .dark-theme a.button:hover,
+    a.button:hover {
+        background-color: $sky_blue;
+        color: $dark_grey;
+
+        svg {
+            color: $dark_grey;
+        }
+    }
+
+    .dark-theme a.button {
+        color: hsl(0, 0%, 70%);
+        background-color: $dark-mode-color;
+    }
+
+}
+
+
+
+@media only screen and (max-width:1023px) {
+    #main-content {
+        margin-left: 0.75em;
+        margin-right: 0.75em;
+    }
+
+}
+
+@media only screen and (max-width: 769px) {
+
+    #main-content {
+
+        #intro-image {
+            display: none;
+        }
+
+        #image-col {
+            display: none;
+        }
+
+        .intro-blurb {
+            margin-left: 5vw;
+        }
+
+        a.button {
+            font-size: 1.5em;
+            width: 75vw;
+            height: 4.5em;
+        }
+
+        #bcol {
+            margin-bottom: 40px;
+        }
+    }
+
+
+}
+
+@media screen and (min-width:1408px) {
+    #main-content {
+        max-width: 1060px
+    }
+}
