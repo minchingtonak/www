@@ -19,6 +19,8 @@ $dark_grey: hsl(0, 0%, 14%);
 $near_black: hsl(0, 0%, 12%);
 $dark_mode_color: hsl(0, 0%, 18%);
 
+$intro_width: 830px;
+
 @mixin animation($animate...) {
     $max: length($animate);
     $animations: '';

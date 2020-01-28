@@ -1,20 +1,23 @@
 #main-content {
-    margin: 50px auto;
+    margin: 20px auto;
 
     #about-me {
-        margin-left: 5vw;
+        margin-left: 2vw;
     }
 
     #intro-image {
+        float: left;
         display: block;
-        width: 70%;
-        border-radius: 3vw;
-        margin: 2em auto;
+        width: 30%;
+        border-radius: 1em;
+        margin: 1em;
+        margin-bottom: 0;
+        margin-left: 0;
     }
 
     .intro-blurb {
-        margin-top: 2em;
-        margin-bottom: 1em;
+        margin: 0.75em 0;
+        margin-right: 0.75em;
     }
 
     .column {
@@ -59,19 +62,34 @@
 
 }
 
+@media screen and (min-width:1408px) {
+    #main-content {
+        max-width: $intro_width;
+    }
+}
 
+@media screen and (max-width:1408px) {
+    #main-content {
+        max-width: $intro_width
+    }
+}
 
 @media only screen and (max-width:1023px) {
     #main-content {
-        margin-left: 0.75em;
-        margin-right: 0.75em;
+        padding-left: 1em;
+        max-width: $intro_width;
     }
-
 }
 
 @media only screen and (max-width: 769px) {
 
     #main-content {
+
+        padding-left: 0em;
+
+        #about-me {
+            font-size: 1.8em;
+        }
 
         #intro-image {
             display: none;
@@ -94,13 +112,7 @@
         #bcol {
             margin-bottom: 40px;
         }
+
     }
 
-
-}
-
-@media screen and (min-width:1408px) {
-    #main-content {
-        max-width: 1060px
-    }
 }
