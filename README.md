@@ -1,5 +1,4 @@
 # Get Started
-* Install dependencies: `npm install sass csso uglify-js -g`
-* Compile stylesheet: `make sass`
-* Minify JS/CSS: `make minify`
-* Compile and minify together: `make all`
+* Install dependencies: `npm install sass csso mishoo/UglifyJS2#harmony -g`
+* Build stylesheets and run test server: `bin/test`
+* Build stylesheets and run test server with minified code: `bin/testmini`
