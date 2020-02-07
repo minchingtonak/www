@@ -1,8 +1,13 @@
 #main-content {
     margin: 20px auto;
+    margin-bottom: 50px;
 
     #about-me {
         margin-left: 2vw;
+
+        svg {
+            transform: scale(0.70);
+        }
     }
 
     #intro-image {
@@ -18,6 +23,7 @@
     .intro-blurb {
         margin: 0.75em 0;
         margin-right: 0.75em;
+        font-size: larger;
     }
 
     .column {
