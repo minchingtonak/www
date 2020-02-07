@@ -9,7 +9,7 @@ function init_navbar() {
     $(this).blur();
   });
 
-  var toggle_mobile_navbar = function() {
+  function toggle_mobile_navbar() {
     if (typeof toggle_mobile_navbar.show == "undefined")
       toggle_mobile_navbar.show = false;
     // Also seems jank -> find a better way later?
@@ -42,21 +42,21 @@ function init_navbar() {
       $(".navbar-item", "#navbar").attr("aria-hidden", "false");
     }
     toggle_mobile_navbar.show = !toggle_mobile_navbar.show;
-  };
+  }
   $("#burger").click(toggle_mobile_navbar);
 
   // subtract navbar hieght from scroll targets before scrolling
-  $('a.navbar-item[href^="#"]', "#navbar").click(function(e) {
+  $('a.navbar-item[href^="#"]', "#navbar").click(function() {
+    // Not an arrow function because need access to a's this, not init_navbar's
     // e.preventDefault()
     is_mobile() ? toggle_mobile_navbar() : void 0;
-    scrollAfterDelay($(this).attr("href"), 250); // 'fast' animation duration + 50ms
+    scrollAfterDelay($(this).attr("href"), 200); // 'fast' animation duration
     return false;
   });
 
-  var state = get_device_state();
-  var prev_state = state;
-  var prev_height = $(window).height();
-  $(window).resize(function() {
+  let state = get_device_state();
+  let prev_state = state;
+  $(window).resize(_ => {
     prev_state = state;
     state = get_device_state();
 
@@ -69,4 +69,27 @@ function init_navbar() {
     )
       $("#navbar-container").css("display", "none");
   });
+}
+
+async function scrollAfterDelay(dest, delay) {
+  /* Force interpreter to wait until the promise returned is resolved
+  Promise is only resolved after scroll code finishes
+  This way, on mobile the hamburger menu will close before the website scrolls */
+  await (function(dest, N) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        const d = $(dest).parent();
+        // center section if it fits within the screen, else scroll to the top of it
+        // +50 px of leeway to prevent ugly scroll position when heights are very close
+        const t =
+          $(window).height() - $("#navbar").height() <= d.outerHeight(true) + 50
+            ? d.offset().top - $("#navbar").height()
+            : d.offset().top +
+              d.outerHeight(true) * 0.5 -
+              $(window).height() * 0.5;
+        $("html,body").scrollTop(t);
+        resolve();
+      }, N);
+    });
+  })(dest, delay);
 }
