@@ -14,6 +14,6 @@ deploy:
   fqdn: alecminch.dev
   committer_from_gh: true
   verbose: true
-  local_dir: minified/html
+  local_dir: minified
   on:
     branch: master
