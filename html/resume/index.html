@@ -23,67 +23,19 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/icon/browserconfig.xml">
 
-    <title>Alec Minchington</title>
+    <title>Alec Minchington Resume</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.min.css">
-    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/js/util.js"></script>
+    <script type="text/javascript" src="/js/navbar.js"></script>
+    <script type="text/javascript" src="/js/resume.js"></script>
 </head>
 
 <body class="html-body">
-
-    <div id="title-container">
-        <div id="title-bg-image" role="image"></div>
-        <div id="title-bg-image-blur" role="image"></div>
-        <section id="header" class="hero top-level">
-            <div id="perspective-wrapper">
-                <figure class="image" id="profile-image-container">
-                    <div>
-                        <img src="mcardphoto_small.png" class="is-rounded is-size-4-mobile is-size-3-tablet">
-                    </div>
-                </figure>
-            </div>
-            <div id="header-body" class="hero-body">
-                <h1 class="title has-text-light has-text-weight-bold is-size-3-tablet is-size-4-mobile">
-                    Hi, I'm Alec Minchington
-                </h1>
-                <h2 class="subtitle has-text-light has-text-weight-normal is-size-4-tablet is-size-5-mobile">
-                    Passionate Programmer, CS Educator, and Computer Hobbyist
-                </h2>
-                <div class="v-spacer">
-
-                </div>
-                <div class="columns is-mobile is-centered">
-                    <div class="column is-narrow header-icon-wrapper">
-                        <a target="_blank" href="https://github.com/minchingtonak" role="button"
-                            title="Go to my GitHub profile"> <i class="fab fa-github header-icon is-size-3-mobile"></i>
-                        </a>
-                    </div>
-                    <div class="column is-narrow header-icon-wrapper">
-                        <a target="_blank" href="https://www.linkedin.com/in/alec-minchington-92985a179/" role="button"
-                            title="Go to my LinkedIn profile"> <i
-                                class="fab fa-linkedin header-icon is-size-3-mobile"></i>
-                        </a>
-                    </div>
-                    <div class="column is-narrow header-icon-wrapper">
-                        <a target="_blank" href="mailto:me@alecminch.dev" role="button" title="Send an email to me"> <i
-                                class="fas fa-envelope header-icon is-size-3-mobile"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div id="scrolldown" class="top-level fade-in-top has-text-light">
-            <a class="top-level" href="#navbar-top" role="button" title="Go to the start of the resume page"></a>
-            <p>Scroll down for more</p>
-            <i id="chevron" class="fas fa-angle-down"></i>
-        </div>
-    </div>
-
     <div id="navbar-top" aria-hidden="true"></div>
 
     <nav id="navbar" class="top-level">
@@ -106,6 +58,10 @@
         </div>
 
         <div id="navbar-container">
+            <a class="navbar-item" href="/index.html#navbar-top" role="button" title="Go to the introduction page." aria-hidden="false">
+                <p>Back</p>
+                <i class="fas fa-chevron-left nav-icon"></i>
+            </a>
             <!-- Filled by generate() -->
         </div>
     </nav>

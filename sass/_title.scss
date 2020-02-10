@@ -24,11 +24,11 @@
 }
 
 #title-bg-image {
-    @include title-image-shared('northcampus_small_compressed.jpg');
+    @include title-image-shared('/img/northcampus_small_compressed.jpg');
 }
 
 #title-bg-image-blur {
-    @include title-image-shared('northcampus_small_blur.jpg');
+    @include title-image-shared('/img/northcampus_small_blur.jpg');
     @extend %image-fade-shared;
 }
 
