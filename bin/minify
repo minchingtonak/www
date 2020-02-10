@@ -6,25 +6,25 @@ OUTPUT=minified
 ./bin/buildstyle
 
 # Create dirs
-for dir in html/*/; do
+for dir in ./*/; do
     mkdir -pv $OUTPUT/$dir
 done
 
 # Copy static dirs
-cp html/icon/* $OUTPUT/html/icon/
-cp html/img/* $OUTPUT/html/img/
+cp icon/* $OUTPUT/icon/
+cp img/* $OUTPUT/img/
 
 # css
-for file in html/css/*; do
+for file in css/*; do
     csso $file > $OUTPUT/$file
 done
 
 # js
-for file in html/js/*; do
+for file in js/*; do
     uglifyjs $file -c -m > $OUTPUT/$file
 done
 
 # html
-for file in html/*.html html/**/*.html; do
+for file in ./*.html ./**/*.html; do
     html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true $file > $OUTPUT/$file
 done

@@ -1,6 +1,5 @@
 #!/bin/bash
 
 ./bin/buildstyle
-cd html
 
 python3 -m http.server 8000

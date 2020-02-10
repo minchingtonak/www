@@ -4,5 +4,5 @@ set -Eeuxo pipefail
 rm -rf minified
 ./bin/minify
 
-cd minified/html
+cd minified
 python -m http.server 8000
