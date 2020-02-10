@@ -1,12 +1,14 @@
 #!/bin/bash
 set -Eeuo pipefail
 
+mkdir -pv html/css
+
 for file in sass/*; do
     name="$(basename -- "$file")"
     if [[ $name =~ ^[^_] ]]; then
         newname="html/css/$(echo $name | sed -e 's/scss/css/' -)"
-        echo "Rendering $file -> $newname"
         sass $file > $newname
+        echo "Rendering $file -> $newname"
     fi
 done
 
