@@ -3,6 +3,8 @@ set -Eeuxo pipefail
 
 OUTPUT=minified
 
+./bin/buildstyle
+
 # Create dirs
 for dir in html/*/; do
     mkdir -pv $OUTPUT/$dir

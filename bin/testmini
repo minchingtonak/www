@@ -2,7 +2,6 @@
 set -Eeuxo pipefail
 
 rm -rf minified
-./bin/buildstyle
 ./bin/minify
 
 cd minified/html
