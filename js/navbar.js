@@ -50,7 +50,7 @@ function init_navbar() {
     // Not an arrow function because need access to a's this, not init_navbar's
     // e.preventDefault()
     is_mobile() ? toggle_mobile_navbar() : void 0;
-    scrollAfterDelay($(this).attr("href"), 200); // 'fast' animation duration
+    scroll_after_delay($(this).attr("href"), (is_mobile() ? 250 : 50)); // 'fast' animation duration + 50 on mobile
     return false;
   });
 
@@ -71,25 +71,23 @@ function init_navbar() {
   });
 }
 
-async function scrollAfterDelay(dest, delay) {
-  /* Force interpreter to wait until the promise returned is resolved
-  Promise is only resolved after scroll code finishes
-  This way, on mobile the hamburger menu will close before the website scrolls */
-  await (function(dest, N) {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        const d = $(dest).parent();
-        // center section if it fits within the screen, else scroll to the top of it
-        // +50 px of leeway to prevent ugly scroll position when heights are very close
-        const t =
-          $(window).height() - $("#navbar").height() <= d.outerHeight(true) + 50
-            ? d.offset().top - $("#navbar").height()
-            : d.offset().top +
-              d.outerHeight(true) * 0.5 -
-              $(window).height() * 0.5;
-        $("html,body").scrollTop(t);
-        resolve();
-      }, N);
-    });
-  })(dest, delay);
+function scroll_after_delay(dest, delay) {
+  wait(delay).then(_ => {
+    const d = $(dest).parent();
+    // center section if it fits within the screen, else scroll to the top of it
+    // +50 px of leeway to prevent ugly scroll position when heights are very close
+    const t =
+      $(window).height() - $("#navbar").height() <= d.outerHeight(true) + 50
+        ? d.offset().top - $("#navbar").height()
+        : d.offset().top + d.outerHeight(true) * 0.5 - $(window).height() * 0.5;
+    $("html,body").scrollTop(t);
+  });
+}
+
+function wait(msec) {
+  return new Promise(resolve => {
+    setTimeout(_ => {
+      resolve();
+    }, msec);
+  });
 }
