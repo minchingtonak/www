@@ -11,6 +11,36 @@ function is_mobile() {
   return $(window).width() <= MOBILE_WIDTH;
 }
 
+function handle_links(text) {
+  const link_pattern = /\[[^\]]+?\][\s]*\([^\s\)]+?[\s]+?'[\s\S]+?'\)/g;
+  const matches = [];
+  while ((match = link_pattern.exec(text))) matches.push(match);
+
+  if (matches.length) {
+    matches.forEach(match => {
+      const mid = /\]\s*\(/g.exec(match[0]);
+      const end = /\s*['"]/g.exec(match[0].substr(mid.index + mid.length));
+
+      text = text.replace(
+        match[0],
+        $("<a>", {
+          text: match[0].substring(1, mid.index),
+          href: match[0].substring(
+            mid.index + mid[0].length,
+            end.index + mid.index + 1
+          ),
+          title: match[0].substring(
+            end.index + mid.index + end[0].length + 1,
+            match[0].length - 2
+          ),
+          target: "_blank"
+        })[0].outerHTML
+      );
+    });
+  }
+  return text;
+}
+
 function toggle_dark_mode() {
   var theme = $(
     "meta[name=theme-color],meta[name=apple-mobile-web-app-status-bar-style]"
