@@ -33,7 +33,7 @@ function resume() {
           entry[property].forEach(bullet => {
             ul.append(
               $("<li>", {
-                html: handle_link(bullet)
+                html: handle_links(bullet)
               })
             );
           });
@@ -41,7 +41,7 @@ function resume() {
         } else {
           const p = $("<p>", {
             class: "e-" + property,
-            html: handle_link(entry[property])
+            html: handle_links(entry[property])
           });
           entry_section.append(p);
         }
@@ -131,36 +131,6 @@ function resume() {
       .catch(error => {
         console.error(error);
       });
-  }
-
-  function handle_link(text) {
-    const regex = /\[[^\]]+?\][\s]*\([^\s\)]+?[\s]+?'[\s\S]+?'\)/g;
-    const matches = [];
-    while ((match = regex.exec(text))) matches.push(match);
-
-    if (matches.length) {
-      matches.forEach(match => {
-        const mid = /\]\s*\(/g.exec(match[0]);
-        const end = /\s*['"]/g.exec(match[0].substr(mid.index + mid.length));
-
-        text = text.replace(
-          match[0],
-          $("<a>", {
-            text: match[0].substring(1, mid.index),
-            href: match[0].substring(
-              mid.index + mid[0].length,
-              end.index + mid.index + 1
-            ),
-            title: match[0].substring(
-              end.index + mid.index + end[0].length + 1,
-              match[0].length - 2
-            ),
-            target: "_blank"
-          })[0].outerHTML
-        );
-      });
-    }
-    return text;
   }
 
   build_resume();

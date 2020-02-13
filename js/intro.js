@@ -4,7 +4,7 @@ function make_blurb(blurb_data) {
     to_fill.append(
       $("<p>", {
         class: "intro-blurb",
-        html: paragraph
+        html: handle_links(paragraph)
       })
     );
   });
