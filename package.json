@@ -1,6 +1,7 @@
 {
   "name": "alecminch.dev",
   "description": "personal website at alecminch.dev",
+  "version": "0.1.0",
   "author": "Alec Minchington",
   "scripts": {
     "deploy": "./bin/minify",
