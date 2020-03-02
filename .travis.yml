@@ -5,7 +5,8 @@ branches:
   only:
   - master
 before_install:
-  - npm i -g mishoo/UglifyJS2#harmony html-minifier csso-cli sass
+  - npm i -g .
+script: npm run deploy
 deploy:
   provider: pages
   skip_cleanup: true

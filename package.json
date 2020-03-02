@@ -1,5 +1,17 @@
 {
-    "scripts": {
-        "test": "./bin/minify"
-    }
+  "name": "alecminch.dev",
+  "description": "personal website at alecminch.dev",
+  "author": "Alec Minchington",
+  "scripts": {
+    "deploy": "./bin/minify",
+    "buildstyle": "./bin/buildstyle",
+    "test": "./bin/test",
+    "testmini": "./bin/testminified"
+  },
+  "devDependencies": {
+    "csso-cli": "^3.0.0",
+    "html-minifier": "^4.0.0",
+    "sass": "^1.25.0",
+    "uglify-es": "github:mishoo/UglifyJS2#harmony"
+  }
 }
