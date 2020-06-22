@@ -1,6 +1,7 @@
 minified/
 css/
 .sass-cache/
+env/
 
 # Logs
 logs
