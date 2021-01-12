@@ -1,8 +1,8 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 set -Eeuxo pipefail
 
-rm -rf minified
+rm -rf build
 ./bin/minify
 
-cd minified
+cd build
 python -m http.server 8000

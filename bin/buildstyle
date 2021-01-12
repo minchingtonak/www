@@ -7,8 +7,7 @@ for file in sass/*; do
     name="$(basename -- "$file")"
     if [[ $name =~ ^[^_] ]]; then
         newname="css/$(echo $name | sed -e 's/scss/css/' -)"
-        npx sass $file > $newname
+        npx sass $file >$newname
         echo "Rendered $file -> $newname"
     fi
 done
-

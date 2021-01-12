@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuxo pipefail
 
-OUTPUT=minified
+OUTPUT=build
 
 ./bin/buildstyle
 
@@ -16,15 +16,15 @@ cp img/* $OUTPUT/img/
 
 # css
 for file in css/*; do
-    npx csso $file > $OUTPUT/$file
+    npx csso $file >$OUTPUT/$file
 done
 
 # js
 for file in js/*; do
-    npx uglifyjs $file -c -m > $OUTPUT/$file
+    npx uglifyjs $file -c -m >$OUTPUT/$file
 done
 
 # html
 for file in ./*.html ./**/*.html; do
-    npx html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true $file > $OUTPUT/$file
+    npx html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true $file >$OUTPUT/$file
 done
