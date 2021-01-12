@@ -1,0 +1,1 @@
+function make_blurb(n){const t=$("#blurb-container");n.content.forEach(n=>{t.append($("<p>",{class:"intro-blurb",html:handle_links(n)}))})}function build_blurb(){fetch("https://gist.githubusercontent.com/minchingtonak/736ab803ba2681637abe34f3f8e14e94/raw").then(n=>n.json()).then(make_blurb).then(after_build).catch(n=>{console.error(n)})}window.onload=build_blurb();
